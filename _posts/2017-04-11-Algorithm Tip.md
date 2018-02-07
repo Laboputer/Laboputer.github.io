@@ -60,30 +60,15 @@ sqrt() 함수를 실제로 구현하는 방법입니다.
 ## 비트마스크
 비트 연산을 이용하여 효율적으로 계산할 수 있는 방법입니다.
 
-1. AND 연산 :  a & b
-2. OR 연산 : a | b
-3. XOR 연산 : a ^ b
-4. NOT 연산 : ~a
+1. AND 연산 :  (a & b)
+2. OR 연산 : (a | b)
+3. XOR 연산 : (a ^ b)
+4. NOT 연산 : (~a)
 
 a를 왼쪽으로 b비트 시프트 : a << b
 
 비트마스크를 이용한 집합구현
 
 int set; , p ( 0<= p <=29)
-|                  설명                |                          구현                        |
-|:---------------------------------------:|:---------------------------------------------------------:|
-| 공집합                                 |  set =0;                                                      |
-| 꽉 찬 집합                              | set = (1 << 30 ) -1;                                      |
-| 원소 추가                               | set |= (1 << p);                                          |
-| 원소 삭제                               | set &= ~ (1 << p);                                        |
-| 원소 포함 확인                          | set &= ( 1<< p ); => 1 이상인 값이면 포함.                |
-| 원소 토글                               | set ^= (1<<p);                                            |
-| 두 집합 a, b 합집합                     | ( a | b )                                                 |
-| 두 집합 a, b 교집합                     | ( a & b )                                                 |
-| 두 집합 a, b 차집합                     | ( a & ~b )                                                |
-| 두 집합 a, b 하나만 포함된 집합         | ( a ^ b )                                                 |
-| 집합의 크기                             | __popcnt(unsigned int set);                               |
-| 켜진 최하위 비트 구하기                 | (set & -set)                                              |
-| 최소 원소 지우기,  최대 거듭제곱 구하기 | set &= (set-1);                                           |
-| 모든 부분집합 순회                      | for(int subset=set; subset; subset=((subset-1) & set) { } |
 
+![](https://raw.githubusercontent.com/laboputer/laboputer.github.io/master/images/Problem_Solving/01.PNG)
