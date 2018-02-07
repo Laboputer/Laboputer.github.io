@@ -94,26 +94,29 @@ struct Queue
 
 ## Priority Queue (우선순위 큐)
 
+우선순위 큐는 우선 순위가 가장 높은 데이터가 가장 먼저 나올 수 있도록 고안된 자료구조
+
 큐와 삽입은 똑같지만 삭제할 경우 가장 우선순위가 높은 데이터가 나온다.
 구현은 Heap 이라는 자료구조를 이용하여 구현할 수 있다.
 
 Heap은 완전이진트리 이며 배열로 구현하기 쉽다.
 
 Heap의 특징
- 1. root(index : 1)의 우선순위가 가장 크다.
+ 1. 완전 이진트리
  2. 부모노드는 자식노드보다 우선순위가 높다.
 
-Heap은 우선순위가 가장 큰 데이터는 O(1)만에 뽑을 수 있고, 삽입과 삭제연산이 O(logN)에 가능하다. 하지만 root의 우선순위가 가장 높다는 사실 빼고는 나머지 데이터에 대한 아무런 정보를 얻을 수 없다.
+Heap은 우선순위가 가장 큰 데이터는 O(1)만에 뽑을 수 있고, 삽입과 삭제연산이 O(logN)에 가능하다. 이를 이용한 Heap Sort도 가능하다. 삽입을 N번 하고 삭제를 N번하면 정렬된 데이터가 나오게 된다.
+
+Heap은 균형잡힌 이진트리보다 좀 더 엄격한 구조로 H를 가장 작게 유지 할 수 있으며, 균형 잡힌 이진트리는 루트 밑의 데이터도 의미가 있다. (중위순회하면 정렬된다.)
+하지만 root의 우선순위가 가장 높다는 사실 빼고는 나머지 데이터에 대한 아무런 정보를 얻을 수 없다.
 
 Algorithm:
-1. root는 1번 인덱스
-2. node의 왼쪽 자식은 node*2, 오른쪽 자식은 node*2+1 인덱스
-3. 삽입연산 : 가장 마지막 노드에 삽입한 후 해당 노드의 부모의 우선순위가 높을 때까지 스왑
-4. 삭제연산 : 루트와 마지막 인덱스를 스왑한다.
-   while (1)
-   4-1 자식이 없을 경우 : 완료
-   4-2 왼쪽 자식만 있을 경우 : 왼쪽 자식이 해당 노드보다 우선순위가 높으면 스왑
-   4-3 자식이 둘다 있을 경우 : 둘 중 높은 우선순위를 가진 노드가 해당 노드보다 높으면 스왑
+1. root는 1번 인덱스, node의 왼쪽 자식은 node*2, 오른쪽 자식은 node*2+1 인덱스
+2. 삽입연산 : while(cur부터 root까지) 현재위치 cur가 부모pnt보다 우선순위가 높으면 스왑
+3. 삭제연산 : 루트와 마지막 인덱스를 스왑한다.
+   while (루트부터 자식이 없을 때 까지)
+   4-1 왼쪽 자식만 있을 경우 : 왼쪽 자식이 해당 노드보다 우선순위가 높으면 스왑
+   4-2 자식이 둘다 있을 경우 : 둘 중 높은 우선순위를 가진 노드가 해당 노드보다 높으면 스왑
    
 Time Complexity : 삽입: O(logN), 삭제:O(logN)
 
@@ -130,8 +133,8 @@ struct PriorityQueue
 		sz++;
 		arr[sz] = x;
 		int cur = sz, p = cur >> 1;
-		while (cur != 1 && arr[cur].prior > arr[p].prior) 
-          Swap(cur, p), cur >>= 1, p >>= 1;
+		while (cur != 1 && arr[cur].prior > arr[p].prior)
+			Swap(cur, p), cur >>= 1, p >>= 1;
 	}
 
 	void Pop()
@@ -141,10 +144,10 @@ struct PriorityQueue
 		int cur = 1, c = cur << 1;
 		while (c <= sz)
 		{
-			if (c + 1 <= sz && arr[c].prior < arr[c + 1].prior && arr[cur].prior < arr[c + 1].prior) 
-              Swap(cur, c + 1), cur = c + 1, c = cur << 1;
-			else if (c <= sz && arr[cur].prior < arr[c].prior) 
-              Swap(cur, c), cur = c, c = cur << 1;
+			if (c + 1 <= sz && arr[c].prior < arr[c + 1].prior && arr[cur].prior < arr[c + 1].prior)
+				Swap(cur, c + 1), cur = c + 1, c = cur << 1;
+			else if (c <= sz && arr[cur].prior < arr[c].prior)
+				Swap(cur, c), cur = c, c = cur << 1;
 			else break;
 		}
 	}
@@ -155,5 +158,8 @@ struct PriorityQueue
 
 연습문제(기초)
 1. https://www.acmicpc.net/problem/1966
+2. https://www.acmicpc.net/problem/11279
+3. https://www.acmicpc.net/problem/11286
 
 연습문제(응용)
+1. https://www.acmicpc.net/problem/1655
