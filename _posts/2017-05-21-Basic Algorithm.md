@@ -119,6 +119,33 @@ Time Complexity : O(N+K) K가 작을 경우 O(N)이다.
 		while (cnt[i]--) printf("%d\n", i);
 ```
 
-
 ***
+연습문제(기초)
+1. https://www.acmicpc.net/problem/2751
+2. https://www.acmicpc.net/problem/10989
+3. https://www.acmicpc.net/problem/11931
+
+연습문제(응용)
+
+
+## 2. Divide and Conquer (분할정복)
+분할정복은 말그대로 주어진 문제를 (1) 분할, (2) 해결하는 방법론입니다.
+
+Algorithm:
+1. 문제를 더 작은 문제로 분할하는 과정 (Divide)
+2. 각 문제에 대해 구한 답을 원래 문제에 대한 답으로 병합하는 과정(Merge)
+3. 더이상 답을 분할하지 않고 곧장 풀수 있는 매우 작은 문제(Base)
+
+분할정복을 적용하여 문제를 해결할 때는 다음과 같은 특징이 있어야 합니다.
+1. 문제를 둘 이상의 부분 문제로 나누는 방법이 있어야 합니다.
+2. 부분 문제의 답으로 더 큰 문제의 답을 계산하는 효율적인 방법이 있어야 합니다.
+
+즉, 부분 문제로 분할하여 구한 답을 합칠때 효율적으로 계산할 수 있는 문제에서만 적용 가능 합니다.
+
+연습문제(기초)
+1. https://www.acmicpc.net/problem/2104
+
+연습문제(응용)
+1. https://www.acmicpc.net/problem/1725
+
 
