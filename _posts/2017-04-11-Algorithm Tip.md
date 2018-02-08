@@ -53,7 +53,31 @@ int reverse(int x)
 
 ## 제곱근 구하기
 sqrt() 함수를 실제로 구현하는 방법입니다.
-바빌로니아 법을 이용하여 빠르게 구할 수 있습니다.
+
+Babylonian method를 이용하여 제곱근을 빠르게 구할 수 있습니다.
+
+√S의 근삿값 Xn을 찾고 다음으로 Xn+1을 아래와 같은 점화식으로 구할 수 있다.
+```
+Xn+1 = 0.5*(Xn+S/Xn);
+```
+
+수식 유도는 [WIKI 참조](https://en.wikipedia.org/wiki/Methods_of_computing_square_roots)
+
+
+
+```
+double sqrt(double x)
+{
+	double px=1, nx;
+	for(int i=0; i<50; i++)
+	{
+		nx=0.5*(px+x/px);
+        if(-1e-4 < px-nx && px-nx < 1e-4) return nx;
+        px=nx;
+	}
+}
+
+```
 
 
 
@@ -61,7 +85,7 @@ sqrt() 함수를 실제로 구현하는 방법입니다.
 비트 연산을 이용하여 효율적으로 계산할 수 있는 방법입니다.
 
 1. AND 연산 :  (a & b)
-2. OR 연산 : (a | b)
+2. OR 연산 : (a l b)
 3. XOR 연산 : (a ^ b)
 4. NOT 연산 : (~a)
 
