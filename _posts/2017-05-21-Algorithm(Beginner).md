@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Basic Algorithm"
+title:  "Algorithm(Beginner)"
 date:   2017-05-21 21:46:00
 categories: ProblemSolving
 tags: ProblemSolving
@@ -252,6 +252,17 @@ SORT(0, cnt - 1);
 
 ```
 
+***
+
+연습문제(기초)
+
+1. https://www.acmicpc.net/problem/2517
+
+연습문제(응용)
+
+1. https://www.acmicpc.net/problem/10256
+
+
 ## 6. Hashing (해싱)
 
 임의의 크기를 가진 데이터를 고정된 크기의 데이터로 변환하는 방법
@@ -426,8 +437,6 @@ struct Map
 연습문제(기초)
 
 1. https://www.acmicpc.net/problem/1920
-
-
 
 연습문제(응용)
 
