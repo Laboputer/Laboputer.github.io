@@ -163,3 +163,39 @@ struct PriorityQueue
 
 연습문제(응용)
 1. https://www.acmicpc.net/problem/1655
+
+
+## Union-Find (Disjoint-set)
+
+서로소 집합을 표현할 수 있는 자료구조.
+
+서로 배타적인 관계 집합을 나타낼 수 있으며, 어떤 두 노드가 주어지면 같은 집합인지 다른 집합인지 표현이 가능하다.
+
+
+Algorithm:
+1. 최초에 각 노드를 자기 자신을 가리키게 초기화한다. (모든 노드는 독립적)
+2. Find 연산 : x가 자기 자신과 같아질 때 까지 재귀적으로 구할 수 있다.
+3. Union 연산 : Find(x)와 Find(y)가 다르면 하나로 합쳐준다.
+   
+Time Complexity : 정확하게 표현하기 어렵고 연산당 O(logN) 정도로 생각해도 무방하다.
+
+```
+struct UF
+{
+	int set[MAXN];
+	UF() { for (int i = 0; i < MAXN; i++) set[i] = i; }
+
+	int Find(int x) { 
+		return set[x] = (set[x] == x ? x : Find(set[x])); 
+	}
+	void Union(int a, int b) { 
+		set[Find(a)] = Find(b); 
+	}
+};
+
+```
+
+연습문제(기초)
+1. https://www.acmicpc.net/problem/1717
+
+연습문제(응용)

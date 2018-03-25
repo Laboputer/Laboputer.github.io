@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Algorithm(Advanced)"
-date:   2017-05-21 21:46:00
+date:   2018-02-10 21:46:00
 categories: ProblemSolving
 tags: ProblemSolving
 ---
@@ -237,7 +237,7 @@ Knapsack뿐만 아니라 비슷한 류 O(2^N) 문제나 냅색에서 특정 조�
 
 먼저, 최단경로에서 음수 가중치를 갖는 간선의 존재 여부가 중요합니다. 먼저 양수 가중치에 대한 알고리즘을 알아보겠습니다.
 
-** Dijkstra Algorithm (다익스트라) **
+**Dijkstra Algorithm (다익스트라)**
 
 한 정점에서 다른 정점(1:N)의 최단경로를 구하는 알고리즘
 
@@ -270,7 +270,7 @@ Code:
 	for (int i = 1; i <= N; i++) printf("%d \n", dist[i]);
 ```
 
-** Bellman-Ford Algorithm (벨만-포드) **
+**Bellman-Ford Algorithm (벨만-포드)**
 
 음의 가중치를 허용하는 한 정점에서 다른 정점(1:N)의 최단경로를 구하는 알고리즘
 
