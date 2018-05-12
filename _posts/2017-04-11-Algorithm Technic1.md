@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Algorithm Tip"
+title:  "Algorithm Technic1"
 date:   2017-04-11 11:46:00
 categories: ProblemSolving
 tags: ProblemSolving
@@ -78,21 +78,3 @@ double sqrt(double x)
 }
 
 ```
-
-
-
-## 비트마스크
-비트 연산을 이용하여 효율적으로 계산할 수 있는 방법입니다.
-
-1. AND 연산 :  (a & b)
-2. OR 연산 : (a l b)
-3. XOR 연산 : (a ^ b)
-4. NOT 연산 : (~a)
-
-a를 왼쪽으로 b비트 시프트 : a << b
-
-비트마스크를 이용한 집합구현
-
-int set; , p ( 0<= p <=29)
-
-![](https://raw.githubusercontent.com/laboputer/laboputer.github.io/master/images/Problem_Solving/01.PNG)

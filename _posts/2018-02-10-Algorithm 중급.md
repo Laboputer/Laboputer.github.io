@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Algorithm(Advanced)"
+title:  "Algorithm 중급"
 date:   2018-02-10 21:46:00
 categories: ProblemSolving
 tags: ProblemSolving
@@ -15,7 +15,7 @@ tags: ProblemSolving
 
 같은 문제여도 여러가지 조건에 따라 다양한 알고리즘이 사용되어 공부하기 좋기 때문에 정리해본다.
 
-**Fractional Knapsack**
+### Fractional Knapsack
 
 물건을 쪼갤 수 있을 때 배낭 문제.
 
@@ -25,7 +25,7 @@ Algorithm :
  무게 대비 가격 효율이 가장 좋은 것을 최대한 쪼개담는다.
 
 
-** 01 Knapsack **
+### 01 Knapsack
 
 물건을 쪼갤 수 없을 때 배낭 문제.
 
@@ -135,7 +135,7 @@ int main()
 }
 ```
 
-**Bound Knapsack**
+### Bound Knapsack
 
 01Knapsack에서 각 물건 당 수량이 여러개인 경우이다.
 
@@ -157,7 +157,7 @@ int W[MAXN], V[MAXN], K[MAXN];
 	}
 ```
 
-**Unbounded Knapsack**
+### Unbounded Knapsack
 
 01Knapsack에서 각 물건의 개수가 제한이 없는 경우.
 
@@ -197,7 +197,7 @@ int main()
 }
 ```
 
-**Meet in the middle**
+### Meet in the middle
 
 정확히 데이터를 둘로 나누어서 각각의 데이터를 완전탐색한 후 해결하는 알고리즘.
 
@@ -219,7 +219,7 @@ Algorithm:
 
 Knapsack뿐만 아니라 비슷한 류 O(2^N) 문제나 냅색에서 특정 조건에 따라 리스트 데이터끼리 합칠 때 효율적으로 구할 수 있는 방법이 있을 경우 적용할 수 있습니다.
 
-
+***
 연습문제(기초)
 
 1. https://www.acmicpc.net/problem/14728
@@ -238,7 +238,7 @@ Knapsack뿐만 아니라 비슷한 류 O(2^N) 문제나 냅색에서 특정 조�
 
 먼저, 최단경로에서 음수 가중치를 갖는 간선의 존재 여부가 중요합니다. 먼저 양수 가중치에 대한 알고리즘을 알아보겠습니다.
 
-**Dijkstra Algorithm (다익스트라)**
+### Dijkstra Algorithm (다익스트라)
 
 한 정점에서 다른 정점(1:N)의 최단경로를 구하는 알고리즘
 
@@ -272,6 +272,7 @@ Code:
 	for (int i = 1; i <= N; i++) printf("%d \n", dist[i]);
 ```
 
+***
 연습문제(기초)
 1. https://www.acmicpc.net/problem/1916
 2. https://www.acmicpc.net/problem/11779
@@ -281,7 +282,7 @@ Code:
 
 
 
-**Bellman-Ford Algorithm (벨만-포드)**
+### Bellman-Ford Algorithm (벨만-포드)
 
 음의 가중치를 허용하는 한 정점에서 다른 정점(1:N)의 최단경로를 구하는 알고리즘
 
@@ -321,6 +322,7 @@ Code:
 	}
 ```
 
+***
 연습문제(기초)
 
 1. https://www.acmicpc.net/problem/11657
@@ -328,7 +330,7 @@ Code:
 
 연습문제(응용)
 
-**Floyld-Warshall Algorithm (플로이드 워셜)**
+### Floyld-Warshall Algorithm (플로이드 워셜)
 
 모든 정점(N:N) 간 최단경로를 구하는 알고리즘
 
@@ -359,12 +361,14 @@ Code:
                 	w[a][b] = w[a][v] + w[v][b], p[a][b]=v;
 ```
 
+***
 연습문제(기초)
 
 1. https://www.acmicpc.net/problem/11404
 2. https://www.acmicpc.net/problem/11780
 
 연습문제(응용)
+
 
 
 

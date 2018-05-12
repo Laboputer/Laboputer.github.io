@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Algorithm(Beginner)"
+title:  "Algorithm 기초"
 date:   2017-05-21 21:46:00
 categories: ProblemSolving
 tags: ProblemSolving
@@ -12,7 +12,7 @@ tags: ProblemSolving
 ## 1. Sorting (정렬)
 Data를 정렬할 때 사용하는 알고리즘 정리
 
-**Bubble Sort**
+### Bubble Sort
 
 설명이 필요 없음.
 
@@ -26,7 +26,7 @@ for (int i=0; i<N; i++)
 
 
 
-**Merge Sort**
+### Merge Sort
 
 분할정복 기법을 이용한 정렬 방법.
 
@@ -59,7 +59,7 @@ void MergeSort(int l, int r)
 }
 ```
 
-**Quick Sort**
+### Quick Sort
 
 최악의 경우 BubbleSort와 같지만 평균적으로 O(NlogN)
 
@@ -98,7 +98,7 @@ void Qsort(int l, int r)
 }
 ```
 
-**Counting Sort**
+### Counting Sort
 
 모든 경우에 대한 정렬의 시간복잡도는 O(NlogN)이 가장 빠른 것으로 증명되었다.
 
@@ -135,69 +135,7 @@ Time Complexity : O(N+K) K가 작을 경우 O(N)이다.
 
 연습문제(응용)
 
-
-## 2. Divide and Conquer (분할정복)
-
-분할정복은 말그대로 주어진 문제를 (1) 분할, (2) 해결하는 방법론입니다.
-
-Algorithm:
-
-1. 문제를 더 작은 문제로 분할하는 과정 (Divide)
-2. 각 문제에 대해 구한 답을 원래 문제에 대한 답으로 병합하는 과정(Merge)
-3. 더이상 답을 분할하지 않고 곧장 풀수 있는 매우 작은 문제(Base)
-
-
-분할정복을 적용하여 문제를 해결할 때는 다음과 같은 특징이 있어야 합니다.
-
-1. 문제를 둘 이상의 부분 문제로 나누는 방법이 있어야 합니다.
-2. 부분 문제의 답으로 더 큰 문제의 답을 계산하는 효율적인 방법이 있어야 합니다.
-
-즉, 부분 문제로 분할하여 구한 답을 합칠때 효율적으로 계산할 수 있는 문제에서만 적용 가능 합니다.
-
-***
-연습문제(기초)
-
-1. https://www.acmicpc.net/problem/2104
-
-연습문제(응용)
-
-1. https://www.acmicpc.net/problem/1725
-
-## 3. Dynamic Programming (동적계획법)
-
-복잡한 문제를 간단히 여러 개의 문제로 나누어 푸는 방법론입니다.
-
-동적계획법 알고리즘을 이용하는 문제는 보통 최적화 문제입니다. 즉 가장 좋은 최적해를 찾아내는 문제입니다. 완전탐색을 하면서 중복되는 계산을 메모리에 저장하는 방법이라고 볼 수 있습니다.
-
-분할 정복과 같은 접근 방식을 이용합니다. 처음 주어진 문제를 더 작은 문제들로 나눈 뒤 계산하고 이를 이용하여 더 큰 문제를 해결합니다.
-
-분할정복과 동적계획법의 차이점은 부분 문제를 나누는 방식에 있습니다.
-
-동적계획법에서의 어떤 부분 문제는 2번 이상을 계산하는 경우가 발생하게 되는데 이때 이를 **중복되는 부분문제(Overlapping subproblems)**라고 합니다.
-
-동적계획법에서는 **중복되는 부분문제(Overlapping subproblems)**의 계산결과를 캐시에 저장하는 것으로 한 번 계산한 부분문제는 메모리에 저장해둬 속도를 향상시키는 알고리즘입니다.
-
-DP문제들을 접근할 때에는 큰 문제가 어떤 부분문제를 발생시키는가, 그리고 다른 방식(정의를 수정해서)으로 부분문제를 발생시킬 때 최소화시킬 수 있는 방안을 찾으면서 Table을 정의하고 그에 맞는 점화식을 이용하여 푼다.
-
-
-동적계획법 알고리즘을 적용하기 위해서는 두가지 조건이 필요합니다.
-
-1. 최적 부분 구조 (Optimal substructure) :
-   큰 문제의 최적해는 반드시 부분 문제의 최적해를 이용해 풀 수 있는 문제
-
-2. 중복되는 부분 문제 (Overlapping subproblems) :
-   부분 문제가 여러번 등장하는 문제
-
-예) 피보나치 수열 구하기, 이항계수 구하기, LIS, LCS 등
-
-***
-연습문제(기초)
-
-1. https://www.acmicpc.net/problem/1463
-
-연습문제(응용)
-
-## 4. Topological Sort (위상정렬)
+## 2. Topological Sort (위상정렬)
 
 위상정렬은 의존성이 있는 작업들이 주어질 때 어떤 순서로 나열해야 하는지를 나타냅니다.
 
@@ -232,221 +170,70 @@ Time Complexity : O(V+E)
 
 연습문제(응용)
 
-## 5. Grid Compression (좌표압축)
 
-좌표평면 상에서 주어진 N개의 점보다 구간의 범위가 훨씬 큰 상황에서 사용할 수 있는 테크닉
+## 3. Divide and Conquer (분할정복)
 
-좌표평면 상에서 구간의 범위가 매우 길면 Seqment Tree로 구간 정보를 구할 때 쓰는 자료구조들을 메모리문제로 사용할 수 없으므로 구간의 범위가 큰 경우 N개가 한정되어 있을때 좌표를 압축하여 사용하는 좌표만 인덱스를 붙여 사용할 수 있다.
-
-어떻게 보면 해쉬와도 유사할 수 있다.
+분할정복은 말그대로 주어진 문제를 (1) 분할, (2) 해결하는 방법론입니다.
 
 Algorithm:
 
-1. N개의 데이터를 정렬한다.
-2. (데이터 중복이 있을 경우) 중복된 데이터를 제거한 X개의 데이터로 바꾼다(X<N)
-3. Binary Search를 이용하여 실제 데이터가 몇번째인지 찾는다.
+1. 문제를 더 작은 문제로 분할하는 과정 (Divide)
+2. 각 문제에 대해 구한 답을 원래 문제에 대한 답으로 병합하는 과정(Merge)
+3. 더이상 답을 분할하지 않고 곧장 풀수 있는 매우 작은 문제(Base)
 
 
-```
-for (int i = 0; i < N; i++) scanf("%d", &a[i]), b[i] = a[i];
-int pre = b[0]; int cnt = 1;
-for (int i = 1; i < N; i++) if (pre != b[i]) c[cnt++] = pre = b[i];
-SORT(0, cnt - 1);
+분할정복을 적용하여 문제를 해결할 때는 다음과 같은 특징이 있어야 합니다.
 
-```
+1. 문제를 둘 이상의 부분 문제로 나누는 방법이 있어야 합니다.
+2. 부분 문제의 답으로 더 큰 문제의 답을 계산하는 효율적인 방법이 있어야 합니다.
+
+즉, 부분 문제로 분할하여 구한 답을 합칠때 효율적으로 계산할 수 있는 문제에서만 적용 가능 합니다.
 
 ***
-
 연습문제(기초)
 
-1. https://www.acmicpc.net/problem/2517
+1. https://www.acmicpc.net/problem/2104
 
 연습문제(응용)
 
-1. https://www.acmicpc.net/problem/10256
+1. https://www.acmicpc.net/problem/1725
+
+## 4. Dynamic Programming (동적계획법)
+
+복잡한 문제를 간단히 여러 개의 문제로 나누어 푸는 방법론입니다.
+
+동적계획법 알고리즘을 이용하는 문제는 보통 최적화 문제입니다. 즉 가장 좋은 최적해를 찾아내는 문제입니다. 완전탐색을 하면서 중복되는 계산을 메모리에 저장하는 방법이라고 볼 수 있습니다.
+
+분할 정복과 같은 접근 방식을 이용합니다. 처음 주어진 문제를 더 작은 문제들로 나눈 뒤 계산하고 이를 이용하여 더 큰 문제를 해결합니다.
+
+분할정복과 동적계획법의 차이점은 부분 문제를 나누는 방식에 있습니다.
+
+동적계획법에서의 어떤 부분 문제는 2번 이상을 계산하는 경우가 발생하게 되는데 이때 이를 **중복되는 부분문제(Overlapping subproblems)**라고 합니다.
+
+동적계획법에서는 **중복되는 부분문제(Overlapping subproblems)**의 계산결과를 캐시에 저장하는 것으로 한 번 계산한 부분문제는 메모리에 저장해둬 속도를 향상시키는 알고리즘입니다.
+
+DP문제들을 접근할 때에는 큰 문제가 어떤 부분문제를 발생시키는가, 그리고 다른 방식(정의를 수정해서)으로 부분문제를 발생시킬 때 최소화시킬 수 있는 방안을 찾으면서 Table을 정의하고 그에 맞는 점화식을 이용하여 푼다.
 
 
-## 6. Hashing (해싱)
+동적계획법 알고리즘을 적용하기 위해서는 두가지 조건이 필요합니다.
 
-임의의 크기를 가진 데이터를 고정된 크기의 데이터로 변환하는 방법
+1. 최적 부분 구조 (Optimal substructure) :
+   큰 문제의 최적해는 반드시 부분 문제의 최적해를 이용해 풀 수 있는 문제
 
-데이터를 인덱스로 접근하면 빠른 시간에 데이터를 찾아낼 수 있는데, 이를 이용하기 위하여 숫자를 포함한(넓은 범위, 좌표압축처럼)문자열 등을 하나의 인덱스로 대칭시켜 해당 메모리에 저장한다.
+2. 중복되는 부분 문제 (Overlapping subproblems) :
+   부분 문제가 여러번 등장하는 문제
 
-**Hash Function** : Key값을 임의의 인덱스로 변경하는 것. 즉 k -> H(k)
-
-Hash Function은 특정 수로 변환하지만 그 수로 다시 key값을 찾는 것은 불가능하다.
-
-또, 다른 Key값이 같은 해싱값을 만들어 낼 수 있는데, 이를 **Collusion(충돌)**이라고 한다.
-
-
-좋은 해싱은 적은 메모리로 Collusion을 최소화하는 Hash Function을 만들어 내는 것이다.
-
-Division method:
-
-Key를 어떤 수 k로 나눈 나머지를 이용한다. (여기서 k는 테이블 크기로 정한다)
-여기서 k값에 따라 해싱의 성능이 크게 결정된다.
-
-k의 크기는 전체 Key의 수의 3배 정도가 적당하다고 한다. k는 소수여야 나눴을때 나머지가 골고루 퍼질 확률이 높고, k는 2의 지수승에 가까우면 좋다고 한다.
-
-K는 테이블의 3배, 2지수승에 가까운 소수
-
-
-```
-#define _K 93419
-	int hashing(long long x)
-	{
-		long long idx = 0;
-		while (x)
-		{
-			long long v = x % 10;
-			idx = (idx << 5) - idx + v;
-			idx %= _K;
-			x /= 10;
-		}
-		return idx;
-	}
-```
-
-Collusion:
-
-충돌이 일어났을 때 방법은 리스트로 체이닝 하는 방법, 충돌나면 다음 인덱스에 저장하는 방법, 더블 해싱하는 방법 등 여러가지가 있다.
-
-만약에 원본 데이터가 클 때에는 충돌일 때 원본 데이터와 같은지 비교연산이 오래 걸리 경우에는 Key값을 여러개 구하여 Value로 저장해놓으면 원본 확인하는데 빠른 시간안에 해결할 수 있다.
-
-
-자세한 내용은 [Geeksforgeeks 참조](https://www.geeksforgeeks.org/hashing-set-2-separate-chaining/)
-
-리스트로 체이닝 하는 방법 예:
-
-```
-struct node
-{
-	long long key;
-	int value;
-	node* next = NULL;
-};
-
-struct list
-{
-	int sz = 0;
-	node* head = new node();
-    
-	void push(long long x)
-	{
-		node* nn = new node();
-		nn->key = x;
-		nn->value = 1;
-		nn->next = head;
-		head = nn;
-		sz++;
-	}
-};
-
-struct Hash
-{
-	list map[HASH];
-	void push(long long x) { map[hashing(x)].push(x); }
-	int hashing(long long x)
-	{
-		long long idx = 0;
-		while (x)
-		{
-			long long v = x % 10;
-			idx = (idx << 5) - idx + v;
-			idx %= HASH;
-			x /= 10;
-		}
-		return idx;
-	}
-};
-
-```
-리스트를 동적할당 대신 배열로 구현하는 방법
-
-```
-#define MAXN 100005
-#define H1 917121
-
-struct Node
-{
-	long long key;
-	int value;
-	int next;
-
-	Node() {}
-	Node(long long k, int v, int n) { key = k, value = v, next = n; }
-};
-
-Node Shared[MAXN];
-int Ccnt = 0;
-
-struct List
-{
-	int head = -1;
-	int sz = 0;
-
-	void Push(long long x)
-	{
-		Shared[Ccnt] = { x,1 ,head };
-		head = Ccnt++;
-		sz++;
-	}
-};
-
-struct Map
-{
-	List Table[H1];
-
-	Map()
-	{
-		Ccnt = 0;
-		for (int i = 0; i < H1; i++) Table[i].sz = 0;
-	}
-
-	int Hashing(long long x)
-	{
-		long long hash = 0;
-		while (x)
-		{
-			hash = (hash << 5) - hash + x % 10;
-			hash %= H1;
-			x /= 10;
-		}
-		return hash;
-	}
-    
-	void Push(long long x)
-	{
-		int idx = Hashing(x);
-		Table[idx].Push(x);
-	}
-
-	bool Exist(long long x)
-	{
-		int idx = Hashing(x);
-		int cur = Table[idx].head;
-		for (int i = 0; i < Table[idx].sz; i++)
-		{
-			if (Shared[cur].key == x) return true;
-			cur = Shared[cur].next;
-		}
-		return false;
-	}
-};
-```
+예) 피보나치 수열 구하기, 이항계수 구하기, LIS, LCS 등
 
 ***
-
 연습문제(기초)
 
-1. https://www.acmicpc.net/problem/1920
+1. https://www.acmicpc.net/problem/1463
 
 연습문제(응용)
 
-1. https://www.acmicpc.net/problem/10256
 
-
-## 7. Graph (그래프 기초)
+## 5. Graph (그래프 기초)
 그래프는 객체들의 상호관계를 표현하기 위해 고안된 자료구조 입니다.
 
 그래프는 현실 세계의 사물이나 추상적인 개념 간의 연결 관계를 모델링하여 표현합니다.
