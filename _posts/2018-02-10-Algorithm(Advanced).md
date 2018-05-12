@@ -225,6 +225,7 @@ Knapsack뿐만 아니라 비슷한 류 O(2^N) 문제나 냅색에서 특정 조�
 1. https://www.acmicpc.net/problem/14728
 2. https://www.acmicpc.net/problem/1699
 3. https://www.acmicpc.net/problem/1450
+4. https://www.acmicpc.net/problem/1208
 
 연습문제(응용)
 
