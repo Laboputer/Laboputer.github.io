@@ -366,9 +366,10 @@ Code:
 
 1. https://www.acmicpc.net/problem/11404
 2. https://www.acmicpc.net/problem/11780
+3. https://www.acmicpc.net/problem/1389
 
 연습문제(응용)
-
+1. https://www.acmicpc.net/problem/1507
 
 
 
