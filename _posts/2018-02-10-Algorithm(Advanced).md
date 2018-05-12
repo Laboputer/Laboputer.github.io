@@ -274,6 +274,7 @@ Code:
 연습문제(기초)
 1. https://www.acmicpc.net/problem/1916
 2. https://www.acmicpc.net/problem/11779
+3. https://www.acmicpc.net/problem/1753
 
 연습문제(응용)
 
@@ -325,6 +326,45 @@ Code:
 2. https://www.acmicpc.net/problem/1865
 
 연습문제(응용)
+
+**Floyld-Warshall Algorithm (플로이드 워셜)**
+
+모든 정점(N:N) 간 최단경로를 구하는 알고리즘
+
+플로이드 워셜 알고리즘은 모든 정점간 최단 경로를 빠르게 구할 수 있는 알고리즘입니다.
+음의 가중치가 있을 경우에도 동작하며, 그 핵심 아이디어는 경유점입니다.
+
+어떤 정점 간 최단 경로는 경유점 v을 지나거나, 지나지 않거나 인데 이를 수식으로 표현하면
+ * D{S}(a,b) = MIN( D{S-v}(a,b), D{S-v}(a,v) + D{S-v}(v,b))
+
+이 됩니다. 즉 전체 정점S에 대하여 v를 경유할 때와 경유하지 않을때를 보면 동적계획법으로 풀수 있게 됩니다.
+
+플로이드 워셜 알고리즘은 보통 N번 다익스트라 또는 벨만포드보다 빠르게 동작합니다. 내부의 복잡한 수식이 없기 때문에 시간복잡도는 같지만 상수배가 작기 때문입니다. 
+
+플로이드 워셜 알고리즘 또한 Dist[a][b] 를 갱신한 경유점을 저장해두면 쉽게 최단거리의 경로를 구해낼 수 있습니다.
+
+Time Complexity : O(V^3)
+
+Algorithm :
+ 1. 경유점 v에 대하여 모든 정점 간 거리 dis[a][b] 값을 구한다.
+ 2. 경유점 v를 모든점으로 확장한다. (즉 바깥쪽 for문이 경유점이다.)
+
+Code:
+```
+	for (int v = 1; v <= N; v++)
+		for (int a = 1; a <= N; a++)
+			for (int b = 1; b <= N; b++)
+				if (w[a][b] > w[a][v] + w[v][b])
+                	w[a][b] = w[a][v] + w[v][b], p[a][b]=v;
+```
+
+연습문제(기초)
+
+1. https://www.acmicpc.net/problem/11404
+2. https://www.acmicpc.net/problem/11780
+
+연습문제(응용)
+
 
 
 
