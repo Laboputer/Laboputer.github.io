@@ -371,6 +371,73 @@ Code:
 연습문제(응용)
 1. https://www.acmicpc.net/problem/1507
 
+## 3. Lowest Common Ancestor (LCA)
+트리가 주어졌을때 임의의 두 점의 가장 가까운 공통조상을 찾는 문제
 
+트리에서 임의의 두 점은 공통조상을 가진다. 루트도 공통조상이겠지만 루트에서 내려가면서 두 점으로 가기위해 갈라지는 바로 그 지점이다.
+
+만약 루트가 변경되면 공통조상은 달라지지만, 정점 경로(정점간 거리)는 동일하다.
+
+Algorithm:
+1. DFS를 통해 각 정점의 Parent와 루트로부터 Depth를 구한다.
+2. 두 정점(a,b)에 대해 LCA는 Depth가 큰 정점b을 작은 정점a과 같을 떄까지 올린 정점c를 구한다.
+3. 만약 정점 a와 c가 같은 경우 a가 LCA가 된다.
+3-1. a와 c가 다른 경우 정점a와 c를 동시에 올려가면서 같아 질때 까지 올라간다.
+
+위의 알고리즘은 한 쌍의 LCA를 구하는데 O(N) 시간이 걸린다. 최악의 경우 parent를 하나씩 끝까지 올리기 때문인데, Parent를 2^k번째 단위로 저장하여 Bit를 이용하면 알고리즘을 개선할 수 있다.
+
+그 방법은 다음과 같다.
+
+Algorithm:
+1. DFS를 통해 각 정점의 Parent[i][k]와 Depth를 구한다. (P[i][k]는 정점i의 2^k번째 부모)
+ 1-1. DFS로 P[i][0]을 구하고 P[i][k] = P[P[i][k-1]][k-1] 로 구할 수 있다.
+2. 두 정점(a,b)에 대해 Depth의 차이 |a-b|를 비트열로 x만큼 줄인다.
+3. 만약 정점 a와 c가 같은 경우 a가 LCA가 된다.
+3-1. a와 c가 다른 경우 정점a와 c를 동시에 올릴 때 가장 큰 비트열부터 보면서 올릴 수 있는 가장큰 k를 찾아 2^k만큼 올린다. 이를 같아 질때 까지 반복한다.
+
+Time Complexity : O(logN)
+
+Code:
+```
+int LCA(int a, int b)
+{
+	if (d[a] > d[b]) { int t = a; a = b; b = t; }
+	
+	int x = d[b] - d[a];
+	for (int i = MAXP-1; i >= 0; i--)
+		if (x & (1 << i)) b = p[b][i];
+
+	if (a == b) return a;
+
+	for (int i = MAXP-1; i>=0; i--)
+	{
+		if (p[a][i] != p[b][i])
+		{
+			a = p[a][i];
+			b = p[b][i];
+		}
+	}
+	return p[a][0];
+}
+
+void main()
+{
+	for (int i = 1; i <= N; i++) for (int j = 0; j < 20; j++) p[i][j] = -1;
+	DFS(1, 0);
+
+	for (int k = 1; k < MAXP; k++)
+		for (int i = 1; i <= N; i++)
+			if (p[i][k - 1] >= 0) p[i][k] = p[p[i][k - 1]][k - 1];
+}
+
+```
+
+***
+연습문제(기초)
+1. https://www.acmicpc.net/problem/11438
+
+연습문제(응용)
+1. https://www.acmicpc.net/problem/1761
+2. https://www.acmicpc.net/problem/3176 
 
 
