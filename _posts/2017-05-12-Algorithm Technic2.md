@@ -279,3 +279,32 @@ struct Map
 연습문제(응용)
 
 1. https://www.acmicpc.net/problem/10256
+
+
+## 5. 정렬된 두 배열에서 특정 합 찾기
+
+정렬된 두 배열 arr1, arr2가 있을때 각 배열에서 하나의 수를 골라 합 S가 존재판정 문제
+
+정렬된 배열에서 BinarySearch로도 구할 수 있음을 알 수 있습니다. arr1에서 각 수에 대해 arr2에서 BS를 하면 O(NlogN) 으로 구할 수 있습니다.
+
+하지만 더 개선된 방법은 투 포인터 방법으로 구할 수 있습니다.
+
+Algorithm:
+
+1. arr1의 1번째 원소 l, arr2의 마지막 원소 r로 시작합니다.
+2. arr[l]+arr[r] < S 면 l++, arr[l]+arr[r] > S 면 r-- 로 S를 찾을 때 까지 반복합니다.
+
+여기서 문제가 좀 더 발전되면 특정합 S의 개수를 찾는 문제도 쉽게 구할 수 있습니다.
+S를 찾았을 때 arr1의 원소에 특정 원소의 개수 x, arr2의 원소에 특정 원소의 개수 y라고 할때
+x*y를 계속해서 더 해주면 됩니다.
+
+Time Complexity: O(N)
+
+***
+
+연습문제(기초)
+
+연습문제(응용)
+
+1. https://www.acmicpc.net/problem/1208
+2. https://www.acmicpc.net/problem/7453
