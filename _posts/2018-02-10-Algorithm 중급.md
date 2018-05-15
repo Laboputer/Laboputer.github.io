@@ -247,7 +247,7 @@ Knapsack뿐만 아니라 비슷한 류 O(2^N) 문제나 냅색에서 특정 조�
 Algorithm:
 1. 시작점에서부터 다른 모든 정점간의 거리를 계산한 dist[N]을 정의한다.
 2. 1.에서 dist[N] 중 가장 짧은 값을 가진 정점 i는 시작점에서 최단경로이다.
-2-1 (2번에서 dist[N] 중 가장 짧은 값을 선택하는 것을 힙 구조를 이용한다.)
+ * (2번에서 dist[N] 중 가장 짧은 값을 선택하는 것을 힙 구조를 이용한다.)
 3. 시작점과 2.에서 정해진 정점i에서 모든 정점 간의 거리를 계산한 dist[N]을 갱신한다.
 4. (2-3)N 번 반복하면 된다.
 
@@ -373,7 +373,59 @@ Code:
 연습문제(응용)
 1. https://www.acmicpc.net/problem/1507
 
-## 3. Lowest Common Ancestor (LCA)
+## 3. Minimum Spanning Tree(MST, 최소 스패닝트리)
+그래프가 주어졌을 때 스패닝트리 중 간선의 합이 가장 작은 최소 스패닝트리를 구하는 문제
+
+그래프가 주어지면 N-1개 간선으로 만들어진 최소 스패닝 트리를 구하는 알고리즘은 크게 2가지가 있다. 크루스칼 알고리즘과 프림 알고리즘이다.
+
+### Kruskal Algorithm
+Algorithm:
+1. 처음 공집합인 트리에서 시작한다.
+2. 그래프의 모든 간선을 가중치 오름차순으로 정렬한다.
+3. 스패닝트리에 가장 작은 간선 하나를 추가한다.
+4. 만약 사이클이 생기면 해당 간선을 지우고 다시 3번을 반복한다.
+5. 추가된 간선이 N-1개면 종료한다. (최소 스패닝트리)
+
+사이클 판정은 Union-Find 자료구조를 이용하면 된다.
+
+Time Complexity: O(ElogE)
+
+Code:
+```
+// MST의 모든 가중치의 합
+for (int i = 0; i < M; i++)
+	{
+		if (uf.Find(E[i].s) != uf.Find(E[i].e))
+		{
+			uf.Union(E[i].s, E[i].e);
+			ans += E[i].r;
+			cnt++;
+		}
+		if (cnt == N - 1) break;
+	}
+```
+
+
+***
+연습문제(기초)
+
+1. https://www.acmicpc.net/problem/1197
+
+연습문제(응용)
+
+
+### Prim Algorithm
+Algorithm:
+1. 그래프에서 하나의 꼭지점을 선택하여 트리를 구성한다.
+2. 트리에서 방문하지 않은 정점에 대한 간선들의 집합 중 가장 작은 간선을 선택한다.
+3. 모든 정점을 방문할 때 까지 2번을 반복한다.
+
+가장 작은 간선을 선택할 때 우선순위 큐를 이용한다.
+
+TIme Complexity : O(ElogE)
+
+
+## 4. Lowest Common Ancestor (LCA)
 트리가 주어졌을때 임의의 두 점의 가장 가까운 공통조상을 찾는 문제
 
 트리에서 임의의 두 점은 공통조상을 가진다. 루트도 공통조상이겠지만 루트에서 내려가면서 두 점으로 가기위해 갈라지는 바로 그 지점이다.
@@ -383,19 +435,19 @@ Code:
 Algorithm:
 1. DFS를 통해 각 정점의 Parent와 루트로부터 Depth를 구한다.
 2. 두 정점(a,b)에 대해 LCA는 Depth가 큰 정점b을 작은 정점a과 같을 떄까지 올린 정점c를 구한다.
-3. 만약 정점 a와 c가 같은 경우 a가 LCA가 된다.
-3-1. a와 c가 다른 경우 정점a와 c를 동시에 올려가면서 같아 질때 까지 올라간다.
+3. 만약 정점 a와 c가 같은 경우 a가 LCA가 된다. 
+ - a와 c가 다른 경우 정점a와 c를 동시에 올려가면서 같아 질때 까지 올라간다.
 
 위의 알고리즘은 한 쌍의 LCA를 구하는데 O(N) 시간이 걸린다. 최악의 경우 parent를 하나씩 끝까지 올리기 때문인데, Parent를 2^k번째 단위로 저장하여 Bit를 이용하면 알고리즘을 개선할 수 있다.
 
 그 방법은 다음과 같다.
 
 Algorithm:
-1. DFS를 통해 각 정점의 Parent[i][k]와 Depth를 구한다. (P[i][k]는 정점i의 2^k번째 부모)
- 1-1. DFS로 P[i][0]을 구하고 P[i][k] = P[P[i][k-1]][k-1] 로 구할 수 있다.
+1. DFS를 통해 각 정점의 Parent[i][k]와 Depth를 구한다.(P[i][k]는 정점i의 2^k번째 부모)
+ * DFS로 P[i][0]을 구하고 P[i][k]=P[P[i][k-1]][k-1]로 구할 수 있다.
 2. 두 정점(a,b)에 대해 Depth의 차이 |a-b|를 비트열로 x만큼 줄인다.
 3. 만약 정점 a와 c가 같은 경우 a가 LCA가 된다.
-3-1. a와 c가 다른 경우 정점a와 c를 동시에 올릴 때 가장 큰 비트열부터 보면서 올릴 수 있는 가장큰 k를 찾아 2^k만큼 올린다. 이를 같아 질때 까지 반복한다.
+ * a와 c가 다른 경우 정점a와 c를 동시에 올릴 때 가장 큰 비트열부터 보면서 올릴 수 있는 가장큰 k를 찾아 2^k만큼 올린다. 이를 같아 질때 까지 반복한다.
 
 Time Complexity : O(logN)
 
@@ -441,5 +493,56 @@ void main()
 연습문제(응용)
 1. https://www.acmicpc.net/problem/1761
 2. https://www.acmicpc.net/problem/3176
+
+## 5. Segment Tree (세그먼트 트리)
+구간에 대한 정보를 빠르게 처리할 수 있는 트리 구조
+
+세그먼트 트리는 구간에 대한 정보를 이진트리로 표현하는 전처리를 통하여 특정 구간에 대한 쿼리를 빠르게 처리하는 용도로 사용합니다.
+
+세그먼트 트리를 구성하면 어떤 구간[a,b]이 주어져도 O(logN)만에 이 구간에 들어있는 구간들의 합집합으로 표현 가능합니다.
+
+ALgorithm:
+1. N개의 데이터가 있으면 4*N개의 배열을 선언한다. (메모리를 4*N 잡으면 충분)
+2. [1,N]은 tree[1]에 저장하며, 각 자식노드는 반반에 대한 구간 정보를 저장한다.
+3. Update연산은 자식노드로 내려가면서 포함하는 인덱스가 있을 경우 데이터를 갱신한다.
+4. Query연산은 [a,b]쿼리를 보낼 때 이를 포함하는 구간이 나올때까지 쪼개가며 return한다
+
+Time Complexity :
+1. Update O(logN)
+2. Query O(logN)
+3. Initialize O(N)
+
+Code:
+```
+void update(int n, int s, int e, int idx, int x)
+{
+	if (idx < s || e < idx) return;
+    // seg[n] = 데이터처리
+    
+	if (s != e)
+	{
+		update(n * 2, s, (s + e) / 2, idx, x);
+		update(n * 2 + 1, ((s + e) / 2) + 1, e, idx, x);
+	}
+}
+
+val query(int n, int s, int e, int l, int r)
+{
+	if (e < l || r < s) return { INF , 0 }; // Invalid Data
+	if (l <= s && e <= r) return seg[n];  // 그대로 사용
+
+    // query 처리
+	// query(n * 2, s, (s + e) / 2, l, r);
+	// query(n * 2 + 1, ((s + e) / 2) + 1, e, l, r);
+	// return ;
+}
+
+```
+
+***
+연습문제(기초)
+1. https://www.acmicpc.net/problem/2357
+
+연습문제(응용)
 
 
