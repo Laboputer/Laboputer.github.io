@@ -432,15 +432,17 @@ TIme Complexity : O(ElogE)
 
 만약 루트가 변경되면 공통조상은 달라지지만, 정점 경로(정점간 거리)는 동일하다.
 
+아이디어는 루트로부터 높이차를 구한 후 루트까지 올라가면서 같을 때까지 보는 것이다.
+
 Algorithm:
 1. DFS를 통해 각 정점의 Parent와 루트로부터 Depth를 구한다.
 2. 두 정점(a,b)에 대해 LCA는 Depth가 큰 정점b을 작은 정점a과 같을 떄까지 올린 정점c를 구한다.
 3. 만약 정점 a와 c가 같은 경우 a가 LCA가 된다. 
  - a와 c가 다른 경우 정점a와 c를 동시에 올려가면서 같아 질때 까지 올라간다.
 
-위의 알고리즘은 한 쌍의 LCA를 구하는데 O(N) 시간이 걸린다. 최악의 경우 parent를 하나씩 끝까지 올리기 때문인데, Parent를 2^k번째 단위로 저장하여 Bit를 이용하면 알고리즘을 개선할 수 있다.
+위의 알고리즘은 한 쌍의 LCA를 구하는데 O(N) 시간이 걸린다. 최악의 경우 parent를 하나씩 끝까지 올리기 때문이다.
 
-그 방법은 다음과 같다.
+이를 개선한 O(logN) 방법이 존재하는데 아이디어가 중요한 문제다. 그것은 Parent를 2^k번째 단위로 저장하자는 것이다. Parent를 2^k번째 단위로 저장하는 이유는 간격을 줄일때 depth 차이를 Bit로 생각하여 2^k번째 비트가 있으면 Parent를 2^k만큼 점프할 수 있기 때문이다. 심지어 2^k = 2^(k-1)*2^(k-1) 이므로 2^k번째 부모를 쉽게 계산해낼 수 있다.
 
 Algorithm:
 1. DFS를 통해 각 정점의 Parent[i][k]와 Depth를 구한다.(P[i][k]는 정점i의 2^k번째 부모)
@@ -497,12 +499,15 @@ void main()
 ## 5. Segment Tree (세그먼트 트리)
 구간에 대한 정보를 빠르게 처리할 수 있는 트리 구조
 
-세그먼트 트리는 구간에 대한 정보를 이진트리로 표현하는 전처리를 통하여 특정 구간에 대한 쿼리를 빠르게 처리하는 용도로 사용합니다.
+세그먼트 트리는 구간에 대한 정보를 이진트리로 표현하는 전처리를 통하여 특정 구간에 대한 쿼리를 빠르게 처리하는 용도로 사용할 수 있다.
 
-세그먼트 트리를 구성하면 어떤 구간[a,b]이 주어져도 O(logN)만에 이 구간에 들어있는 구간들의 합집합으로 표현 가능합니다.
+세그먼트 트리를 구성하면 어떤 구간[a,b]이 주어져도 O(logN)만에 이 구간에 들어있는 구간들의 합집합으로 표현 가능한데, 이를 이용하여 어떤 구간의 합, 최소값 등 특정 구간의 정보들을 빠르게 구할 수 있게 된다.
+
+아이디어는 간단하다. 특정 구간의 정보를 트리 형식으로 표현하여, 어떤 구간에 대한 쿼리가 들어왔을 때 빠르게 특정 구간들의 정보를 조합하여 답을 도출해내는 것이다.
 
 ALgorithm:
-1. N개의 데이터가 있으면 4*N개의 배열을 선언한다. (메모리를 4*N 잡으면 충분)
+0. N개의 데이터가 있으면 4*N개의 배열을 선언한다. (메모리를 4*N 잡으면 충분)
+1. Initialize는 arr[N]의 정보를 가진채로 트리 배열을 구한다.
 2. [1,N]은 tree[1]에 저장하며, 각 자식노드는 반반에 대한 구간 정보를 저장한다.
 3. Update연산은 자식노드로 내려가면서 포함하는 인덱스가 있을 경우 데이터를 갱신한다.
 4. Query연산은 [a,b]쿼리를 보낼 때 이를 포함하는 구간이 나올때까지 쪼개가며 return한다
@@ -514,12 +519,22 @@ Time Complexity :
 
 Code:
 ```
+long long init(int n, int l, int r)
+{
+	if (l == r) // 구간의 요소가 1개일때 값
+		return seg[n] = arr[l];
+	else // 구간의 요소가 n개 일때 (합 정보를 저장할 때 예제)
+    	return seg[n] = init(n * 2, l, (l + r) / 2) + init(n * 2 + 1, (l + r) / 2 + 1, r);
+}
+
 void update(int n, int s, int e, int idx, int x)
 {
 	if (idx < s || e < idx) return;
+    
+    // idx를 포함하는 구간
     // seg[n] = 데이터처리
     
-	if (s != e)
+	if (s != e) // 요소가 하나 일때는 쪼갤 수 없음.
 	{
 		update(n * 2, s, (s + e) / 2, idx, x);
 		update(n * 2 + 1, ((s + e) / 2) + 1, e, idx, x);
@@ -529,7 +544,7 @@ void update(int n, int s, int e, int idx, int x)
 val query(int n, int s, int e, int l, int r)
 {
 	if (e < l || r < s) return { INF , 0 }; // Invalid Data
-	if (l <= s && e <= r) return seg[n];  // 그대로 사용
+	if (l <= s && e <= r) return seg[n];  // 구간[s,e]에 대한 내용을 전부 사용함
 
     // query 처리
 	// query(n * 2, s, (s + e) / 2, l, r);
@@ -542,7 +557,70 @@ val query(int n, int s, int e, int l, int r)
 ***
 연습문제(기초)
 1. https://www.acmicpc.net/problem/2357
+2. https://www.acmicpc.net/problem/2042
 
 연습문제(응용)
 
+### Lazy propagation
+Segment Tree에서 Update 연산을 구현할 때 바로 Update하지 않고 필요시 Update하는 방법.
 
+예를 들어보자면, Update 연산을 할 때 특정 요소의 데이터를 변경하는 것이 아니라 어떤 구간에 대한 데이터를 변경한다고 생각해보자. 어떤 구간에 대한 데이터를 변경할때도 Query로 해당 구간을 포함하는 Segment Tree를 변경하면 된다. 하지만 최악의 경우([1,N] 구간 변경) 세그먼트 트리의 모든 노드를 변경해야 한다. (O(NlogN))
+
+Update 후 바로 Query를 진행하는 경우에는 Lazy하게 해도 의미가 없지만 위와 같은 Update가 M번 반복되면 느려지므로, 세그먼트 트리를 갱신해 나가다가 특정 노드의 자식노드들을 모두 갱신해야 되는 상황이 오면 갱신하지 않고 lazy 계수를 저장해놓고 필요할 때만 업데이트하여 사용하는 방법이다.
+
+일반적인 세그먼트 트리와 구현상 다른점은 Lazy 계수를 두고 특정 노드를 방문할 때 마다 Lazy계수가 존재하는 지 보고 있으면 세그먼트 트리에 반영하고 Lazy계수를 자식노드 2노드에게 전파한다.
+
+Code
+```
+// 합에 대한 쿼리를 예시로 작성하였음.
+
+void update_lazy(int n, int l, int r)
+{
+	if (lazy[n] != 0)
+	{
+		seg[n] += (r - l + 1)*lazy[n];
+		if (l != r)
+		{
+			lazy[n * 2] += lazy[n];
+			lazy[n * 2 + 1] += lazy[n];
+		}
+		lazy[n] = 0;
+	}
+}
+
+void update_range(int n, int l, int r, int ll, int rr, long long diff)
+{
+	update_lazy(n, l, r);
+	if (rr < l || r < ll) return;
+
+	if (ll <= l && r <= rr)
+	{
+		lazy[n] += diff;
+		update_lazy(n, l, r);
+		return;
+	}
+	
+	if (l != r)
+	{
+		update_range(n * 2, l, (l + r) / 2, ll, rr, diff);
+		update_range(n * 2 + 1, (l + r) / 2 + 1, r, ll, rr, diff);
+		seg[n] = seg[n * 2] + seg[n * 2 + 1];
+	}
+}
+
+long long query_sum(int n, int l, int r, int ll, int rr)
+{
+	update_lazy(n, l, r);
+	if (rr < l || r < ll) return 0;
+
+	if (ll <= l && r <= rr) return seg[n];
+	return query_sum(n * 2, l, (l + r) / 2, ll, rr) + query_sum(n * 2 + 1, (l + r) / 2 + 1, r, ll, rr);
+}
+```
+
+***
+연습문제(기초)
+1. https://www.acmicpc.net/problem/10999
+
+연습문제(응용)
+1. https://www.acmicpc.net/problem/1395
