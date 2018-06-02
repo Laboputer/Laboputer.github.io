@@ -373,7 +373,7 @@ Code:
 연습문제(응용)
 1. https://www.acmicpc.net/problem/1507
 
-## 3. Minimum Spanning Tree(MST, 최소 스패닝트리)
+## 3. Minimum Spanning Tree(최소 스패닝트리)
 그래프가 주어졌을 때 스패닝트리 중 간선의 합이 가장 작은 최소 스패닝트리를 구하는 문제
 
 그래프가 주어지면 N-1개 간선으로 만들어진 최소 스패닝 트리를 구하는 알고리즘은 크게 2가지가 있다. 크루스칼 알고리즘과 프림 알고리즘이다.
@@ -624,3 +624,5 @@ long long query_sum(int n, int l, int r, int ll, int rr)
 
 연습문제(응용)
 1. https://www.acmicpc.net/problem/1395
+2. https://www.acmicpc.net/problem/7626
+3. https://www.acmicpc.net/problem/5486
