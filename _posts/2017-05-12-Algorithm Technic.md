@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Algorithm Technic2"
+title:  "Algorithm Technic"
 date:   2017-05-12 11:46:00
 categories: ProblemSolving
 tags: ProblemSolving
