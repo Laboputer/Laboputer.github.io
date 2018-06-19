@@ -167,9 +167,11 @@ Time Complexity : O(V+E)
 
 1. https://www.acmicpc.net/problem/2252
 2. https://www.acmicpc.net/problem/1516
+3. https://www.acmicpc.net/problem/1766
 
 연습문제(응용)
-
+1. https://www.acmicpc.net/problem/2056
+2. https://www.acmicpc.net/problem/1948
 
 ## 3. Divide and Conquer (분할정복)
 
