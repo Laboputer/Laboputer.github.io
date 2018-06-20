@@ -385,6 +385,32 @@ Code:
 
 이 알고리즘은 벨만포드 알고리즘에서 조금 더 개선한 알고리즘이라고 보면 된다. 시간복잡도도 벨만포드 알고리즘과 동일한 O(VE)이지만, 평균적인 경우 O(E)이다.
 
+원리는 간단한데, 벨만포드 알고리즘 if(d[to] > d[from] + cost) 에서 정점 to로 가는 경로가 갱신되는 경우에만 다른 정점으로의 경로도 갱신될 가능성이 있기 때문에,
+갱신될 가능성이 있을 때만 모든 간선을 확인해보는 것으로 바꾸는 것이다.
+
+```
+	while (!q.empty())
+	{
+		int from = q.front();
+		c[from] = false; q.pop();
+		for (int i = 0; i < E; i++)
+		{
+			int to = e[i].to;
+			int cost = e[i].cost;
+			if (d[to] > d[from] + cost)
+			{
+				d[to] = d[from] + cost;
+				if (c[to] == false)
+				{
+					q.push(to);
+					c[to] = true;
+				}
+			}
+		}
+	}
+```
+
+
 ## 3. Minimum Spanning Tree(최소 스패닝트리)
 그래프가 주어졌을 때 스패닝트리 중 간선의 합이 가장 작은 최소 스패닝트리를 구하는 문제
 
