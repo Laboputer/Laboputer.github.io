@@ -308,3 +308,46 @@ Time Complexity: O(N)
 
 1. https://www.acmicpc.net/problem/1208
 2. https://www.acmicpc.net/problem/7453
+
+## 6. Sqrt Decomposition
+
+구간에 대한 쿼리를 효율적으로 처리하기 위하여 세그먼트 트리를 이용하는 문제들이 있다. 그런데 세그먼트 트리 말고 루트N 구간에 대한 정보를 저장하여 처리하는 방식을 Sqrt Decomposition이 있다.
+
+이 알고리즘이 문제 상황에 따라 더 효율적인 경우도 존재한다. 기본적인 아이디어는 심플하게 루트N을 가지고
+원래 배열을 가지고 있으면서 별도의 그룹핑한 결과 (최소값인 경우 루트N개의 최소값)를 활용하여 구한다.
+
+특정 쿼리(l,r) 이 주어졌을때 l과 r이 같은 그룹에 속하는 경우 완전탐색을 진행하면 되는 것이고, l또는 r이 특정 구간의 중간에 위치하면 그 그룹에 대해서만 완전탐색으로 구해주고, 그룹을 완전히 포함하는 부분은 그룹값으로 대체하면 된다.
+
+결과적으로 Query는 O(logN) 보다 느린 O(rootN) 이지만 Update하는 데에는 grp값만 변경하면 되기 때문에 O(1)으로 매우 효율적으로 동작한다. 즉 Update하는 연산이 많은 경우 이 알고리즘이 세그먼트 트리보다 빠를 수 있다.
+
+Time Complexity: Init O(N), Query O(rootN), Update O(1)
+
+Code:
+```
+int a[MAXN];
+Node grp[1000];
+int sqrt;
+
+Node qry(int l, int r)
+{
+	Node n;
+	while (l%sqrt != 0 && l <= r) // l을 포함한 그룹 완전탐색 처리
+	{
+		if (n.mn > a[l]) n.mn = a[l];
+		l++;
+	}
+
+	while ((r + 1) % sqrt != 0 && l <= r) //r을 포함한 그룹 완전탐색 처리
+	{
+		if (n.mn > a[r]) n.mn = a[r];
+		r--;
+	}
+
+	while (l <= r) // 그룹 l과 r을 제외한 나머지 그룹은 그룹탐색처리
+	{
+		if (n.mn > grp[l / sqrt].mn) n.mn = grp[l / sqrt].mn;
+		l += sqrt;
+	}
+	return n;
+}
+```
