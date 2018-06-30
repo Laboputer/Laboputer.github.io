@@ -233,6 +233,8 @@ DP문제들을 접근할 때에는 큰 문제가 어떤 부분문제를 발생�
 1. https://www.acmicpc.net/problem/1463
 
 연습문제(응용)
+1. https://www.acmicpc.net/problem/4095
+
 
 ## 5. Greedy (탐욕적 방법)
 최적해를 구할 때 쓰이는 근사 알고리즘 방법론입니다.
