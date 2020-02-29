@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Language
-slug: language
-category: C#
+title: C#
+slug: csharp
+category: language
 menu: false
 order: 1
 ---
