@@ -2,8 +2,8 @@
 layout: post
 title:  "SAMPLE"
 subtitle:   "TEST 중이예요.."
-categories: Language
-tags: C#
+categories: language
+tags: csharp
 ---
 
 
