@@ -1,6 +1,1 @@
-﻿## laboputer's Personal Website
-
-그냥 공부하는거 정리
-
-
-Designed By ![Gaohaoyang](https://github.com/Gaohaoyang)
+프로그래밍을 하면서 접하는 다양한 주제를 정리하는 개발자 블로그입니다.
