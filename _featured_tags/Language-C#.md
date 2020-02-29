@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
 title: Language
-#slug: 
+slug: language
 category: C#
 menu: false
 order: 1
