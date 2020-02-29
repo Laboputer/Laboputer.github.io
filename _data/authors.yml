@@ -1,37 +1,29 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
-# You can change `author1` to your shortname.
-author1:
-  # Replace <...> with your own (remove the < >)
-  name:              <firstname> <lastname>
-  email:             <mail@domain.tld>
+# Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
+laboputer:
+  name:              laboputer
+  email:             laboputer@gmail.com
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    edit _authors.yml
 
-    Open `_data/authors.yml` to edit this text.
-
-  # This photo will be used in the about section.
+  # This photo will be used in the about section
   picture:
-    path:            https://placehold.it/128x128
+    src:             /assets/img/me.jpeg
     # srcset is optional, but can be used to provide higher res versions for retina displays
     srcset:
-      1x:            https://placehold.it/128x128
-      2x:            https://placehold.it/256x256
+      1x:            /assets/img/me.jpeg
+      2x:            /assets/img/me.jpeg
 
-  # Social media icons in sidebar.
-  # Comment/uncommet to show/hide. Rearrange to change the order in which they appear.
+  # Social media icons in sidebar
+  # Comment/uncommet to show/hide
+  # Icons appear in order, can be rearranged:
   social:
-    twitter:         jekyllrb
-    github:          qwtel/hydejack
-    # download:        <url>
-    # email:           <mail@domain.tld>
-    # rss:             https://<url>/feed.xml
     # facebook:        <username>
+    # twitter:         <username>
     # google:          <number>
     # vk:              <username>
     # youtube:         <string_string_string>
@@ -54,6 +46,7 @@ author1:
     # pinterest:       <username>
     # foursquare:      <number>
     # yelp:            <string>
+    github:          laboputer
     # stackoverflow:   <number/username>
     # npm:             <username>
     # hackernews:      <username>
@@ -64,9 +57,11 @@ author1:
     # delicious:       <username>
     # stumbleupon:     <username>
     # paypal:          <username>
+    email:           mailto:laboputer@gmail.com
+    # rss:             https://isme2n.github.io/feed.xml
 
 # Another author
-author2:
+mdo:
   name:              <firtname> <lastname>
   email:             <mail@domain.tld>
   about:             |
@@ -76,12 +71,8 @@ author2:
 
     Open `_data/authors.yml` to edit this text.
   picture:           https://placehold.it/128x128
-  twitter:           <username>
-  github:            <username>
-
-  # Every author can have his/her own accent color and image.
-  # This will change the appearance of all pages of this author.
-  accent_color:      '#268bd2'
-  accent_image:
-    background:      '#202020'
-    overlay:         false
+  social:
+    github:          <username>
+    twitter:         <username>
+  image: 'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' # http://jsfiddle.net/LPxrT/
+  color: '#268bd2'
