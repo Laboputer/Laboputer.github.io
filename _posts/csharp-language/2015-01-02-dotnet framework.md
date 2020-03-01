@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  [C# 문법] 1) .NET Framework
-subtitle:   "TEST 중이예요.."
+title:  "[C# 문법] 1) .NET Framework"
+subtitle:   "dotent framework"
 categories: csharp
 tags: language
 ---
 
 > `[C# 문법]` 시리즈 형식으로 C# 프로그래밍 문법에 대해 포스팅을 진행합니다. C# 언어를 처음 접하시는 분 또는 C# 개발을 하고 있지만 문법이 익숙치 않으신 분들이 읽기에 좋습니다. 전체를 한번에 읽으시기 보단 관심있는 챕터를 찾아 읽는 것을 권장합니다.
-> `뇌를 자극하는 C# 4.0 프로그래밍 - 박상현` 책 내용을 바탕으로 정리하였습니다.
+> 본 시리즈는 `뇌를 자극하는 C# 4.0 프로그래밍 - 박상현` 책 내용을 바탕으로 정리하였습니다.
 
 > 이번 포스팅에서는 C# 언어가 실행될 수 있는 기반이 되는 **.NET Framework**에 대해 알아봅니다. 
 
