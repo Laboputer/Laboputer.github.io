@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[C# 문법] 6) 인터페이스(interface)"
+title:  "[C# 기초] 6) 인터페이스(interface)"
 subtitle:   "interface"
 categories: csharp
 tags: language

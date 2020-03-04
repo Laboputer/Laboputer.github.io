@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[C# 문법] 5) 상속과 다형성"
+title:  "[C# 기초] 5) 상속과 다형성"
 subtitle:   "inheritance"
 categories: csharp
 tags: language
