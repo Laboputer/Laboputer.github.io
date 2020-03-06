@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "[C# 기초] 8) 예외처리(Exception handling)"
-subtitle:   "collection"
+title:  "[C# 기초] 8. 예외처리(Exception handling)"
+subtitle:   "exception"
 categories: csharp
 tags: language
 ---

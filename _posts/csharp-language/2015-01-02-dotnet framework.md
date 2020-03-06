@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[C# 기초] 1) 닷넷 프레임워크(.NET Framework)"
+title:  "[C# 기초] 1. 닷넷 프레임워크(.NET Framework)"
 subtitle:   "dotent framework"
 categories: csharp
 tags: language

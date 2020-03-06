@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[C# 기초] 7) 컬렉션(Collection)"
+title:  "[C# 기초] 7. 컬렉션(Collection)"
 subtitle:   "collection"
 categories: csharp
 tags: language
