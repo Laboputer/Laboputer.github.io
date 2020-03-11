@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: C# 기본문법
+title: 기본 문법
 slug: language
 category: csharp
 menu: false
