@@ -1,0 +1,10 @@
+numpy
+scipy
+matplotlib
+ipython
+scikit-learn
+pandas
+pillow
+wrapt
+tensorflow==2.0.0
+mglearn
