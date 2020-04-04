@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: python
+title: Python
 slug: python
-category: python
+category: machine-learning
 menu: false
 order: 1
 ---
