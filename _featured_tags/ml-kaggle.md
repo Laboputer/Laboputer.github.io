@@ -4,5 +4,5 @@ title: Kaggle
 slug: kaggle
 category: machine-learning
 menu: false
-order: 2
+order: 3
 ---
