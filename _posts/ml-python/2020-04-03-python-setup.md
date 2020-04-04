@@ -93,7 +93,7 @@ pip install -r C:/requirements.txt
 
 [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb) 또는 [AWS](https://aws.amazon.com/ko/ec2/) 을 추천합니다.
 
-Colab은 개인적으로 자주 사용하기 때문에 별도로 포스팅하겠습니다.
+Colab 사용방법은 [이곳](https://laboputer.github.io/machine-learning/2020/04/04/colab/)에 별도로 포스팅하였습니다.
 
 ## (설치완료) 주피터 노트북 실행 확인
 ---
