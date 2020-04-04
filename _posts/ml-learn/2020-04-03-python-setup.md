@@ -1,14 +1,13 @@
 ---
 layout: post
-title:  "(python) 머신러닝 개발환경 구축하기"
+title:  "(Python) 머신러닝 개발환경 구축하기"
 subtitle:   "python-setup"
 categories: machine-learning
 tags: python tutorial
 ---
-
 > Anaconda를 이용하여 python 개발환경을 구축하고 머신러닝 관련 패키지들을 설치하는 방법을 포스팅합니다.
 
-## 머신러닝 분야를 공부해보고 싶어요
+## 머신러닝 분야를 공부해보고 싶어요!
 ---
 
 Machine Learning 분야를 공부하고 개발해볼 수 있는 언어로는 R, Java 등 다양하고 언어에 맞는 개발환경(IDE)들도
@@ -48,8 +47,7 @@ Python 개발환경이 만들어졌습니다. 같이 설치된 Jupyter Notebook�
 ## Step 2. 머신러닝 패키지 설치
 ---
 
-Python에서 머신러닝 패키지는 다양하지만 구글의 [TensorFlow](https://www.tensorflow.org/)를 포함한 자주 사용하는 패키지들을 함께 설치해보겠습니다.
-개발할때 필요한 패키지는 추후에도 같은 방식으로 설치하시면 됩니다.
+Python에서 머신러닝 패키지는 다양하지만 구글의 [TensorFlow](https://www.tensorflow.org/)를 포함한 자주 사용하는 패키지들을 함께 설치해보겠습니다. 개발할때 필요한 패키지는 추후에도 같은 방식으로 설치하시면 됩니다.
 
 ### 1. pip 최신버전 업그레이드
 
@@ -71,17 +69,31 @@ Anaconda 2020.02 버전을 설치하였으면 포스팅 작성일 기준 pip가 
 pip install (패키지 이름)
 ```
 
-패키지가 많기 때문에 제가 자주 사용하는 Tensorflow 2.0을 포함한 머신러닝 관련 패키지 모음을 텍스트 파일로 정리해놓았습니다. 다운로드 받으시고 아래와 같은 명령어를 입력하면 한번에 설치됩니다.
+패키지가 많기 때문에 제가 자주 사용하는 Tensorflow 2.0을 포함한 머신러닝 관련 패키지 모음을 텍스트 파일로 정리해놓았습니다.
 
 [머신러닝 패키지 모음 다운로드](https://laboputer.github.io/assets/img/ml/python/setup-python/requirements.txt)
 
-이미지는 다운로드 받은 파일을 C:/ 경로에 복사했는데 만약 경로가 다르면 명령어에서 경로만 변경하시면 됩니다.
+다운로드 받으시고 아래와 같은 명령어를 입력하면 한번에 설치됩니다. 이미지는 다운로드 받은 파일을 **C:/ 경로**에 복사했는데 만약 파일의 위치가 다르면 명령어에서 경로만 변경하여 입력하시면 됩니다.
 
 ```
 pip install -r C:/requirements.txt
 ```
 
 ![](https://laboputer.github.io/assets/img/ml/python/setup-python/5.JPG)
+
+### (참고) 머신러닝 학습 시 GPU를 사용하고 싶어요
+실제로 공부를 하시다가 많은 양의 데이터를 학습하다보면 시간이 오래 걸리다보니 GPU을 이용하여 빠르게 학습시키고 싶으시게 되실 겁니다.
+본인 PC의 GPU을 사용할 수도 있지만 구글이나 아마존의 클라우드 서비스를 이용하시는 것이 좋습니다.
+
+(TensorFlow 기준) 본인 PC에서 GPU를 사용하시고자 한다면: 
+
+ [TensorFlow-GPU Support](https://www.tensorflow.org/install/gpu) 공식홈페이지에 한글로 잘 설명되어 있으니 따라하시면 됩니다.
+
+클라우드 서비스를 이용하고 싶다면:
+
+[Google Colab](https://colab.research.google.com/notebooks/intro.ipynb) 또는 [AWS](https://aws.amazon.com/ko/ec2/) 을 추천합니다.
+
+Colab은 개인적으로 자주 사용하기 때문에 별도로 포스팅하겠습니다.
 
 ## (설치완료) 주피터 노트북 실행 확인
 ---
