@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "(Python) 머신러닝 개발환경 구축하기"
+title:  "머신러닝 개발환경(Python) 구축하기"
 subtitle:   "python-setup"
 categories: machine-learning
 tags: python tutorial
