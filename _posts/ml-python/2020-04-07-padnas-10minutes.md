@@ -63,8 +63,8 @@ import matplotlib.pyplot as plt
  
 쉽게 생각하면 `DataFrame`에서 하나의 컬럼만 가지고 있는 것이 `Series`입니다.
 
-
 `Series`는 어떻게 생성할 수 있을까요?
+
 ```python
 s = pd.Series([1,3,5,np.nan,6,8])
 # 0    1.0
@@ -86,7 +86,7 @@ dates = pd.date_range('20130101', periods=6)
 #               dtype='datetime64[ns]', freq='D')
 
 df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
-#                       A	        B	        C	        D
+#                       A           B           C           D
 # 2013-01-01	 1.571507	 0.160021	-0.015071	-0.118588
 # 2013-01-02	-1.037697	-0.891196	 0.495447	 0.453095
 # 2013-01-03	-1.682384	-0.026006	-0.152957	-0.212614
@@ -98,6 +98,7 @@ df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
 먼저 `index`가 시간에 관련된 데이터라고 가정하고 `data_range()`를 이용하여 시간에 대한 1차원 데이터를 생성하였습니다. 그리고 `np.random.randn()`을 통해 6x4에 해당하는 2차원 데이터를 생성하였습니다. `columns` 또한 `DataFrame`에서 사용될 컬럼의 이름을 1차원 데이터(A,B,C,D)로 생성합니다. 위 3가지 데이터 (컬럼, 인덱스, 2차원 데이터)를 가지고 만들었습니다.
 
 자주 사용하는 딕셔너리 형식으로도 `DataFrame`을 만들 수 있습니다.
+
 ```python
 df2 = pd.DataFrame({'A':1.,
                    'B':pd.Timestamp('20130102'),
@@ -187,6 +188,7 @@ df.tail(3)
 ```
 
 `DataFrame`의 대표적인 값인 `.columns`, `.index`, `.values`는 다음과 같이 각각 확인할 수 있습니다.
+
 ```python
 df.index
 # DatetimeIndex(['2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04',
@@ -206,6 +208,7 @@ df.values
 ```
 
 `DataFrame`의 `to_numpy()`를 이용하여 인덱스와 컬럼을 제외한 2차원 데이터만을 `numpy`의 형식으로 반환해줍니다. 사실은 `.values`와 동일합니다.
+
 ```python
 df.to_numpy()
 # array([[ 0.34867481, -1.35115579, -0.17998376, -0.61736245],
@@ -225,6 +228,7 @@ df.to_numpy()
 - 50%: 중앙값
 - 75%: 3사분위값
 - max: 최대값
+
 ```python
 df.descrbie()
 #               A	        B	        C	        D
@@ -239,6 +243,7 @@ df.descrbie()
 ```
 
 `DataFrame`의 `.T` 속성은 `values`를 Transpose한 결과를 보여줍니다. Transpose는 인덱스를 컬럼으로, 컬럼을 인덱스로 변경하여 보여주는 것입니다.
+
 ```python
 df.T
 #    2013-01-01 2013-01-02   2013-01-03  2013-01-04  2013-01-05  2013-01-06
@@ -251,6 +256,7 @@ df.T
 `DataFrame`의 `sort_index()`를 통해 인덱스 또는 컬럼의 이름으로 정렬을 할 수도 있습니다.
 - `axis`: 축 기준 정보 (0: 인덱스 기준, 1: 컬럼 기준)
 - `ascending`: 정렬 방식 (false : 내림차순, true: 오름차순)
+
 ```python
 df.sort_index(axis=1, ascending=False)
 # 	                    D	        C	        B	        A
@@ -284,7 +290,9 @@ df.sort_values(by='B')
 > 이 장에 대해 자세한 설명은 [Indexing and Selecting Data](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing)와 [MultiIndex / Advanced Indexing](https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html#advanced)을 확인하세요.
 
 ### 데이터 가져오기 - Getting 
+
 컬럼을 기준으로 데이터를 가져올 수 있습니다.
+
 ```python
 # df.A 또는 df['A'] 로 컬럼의 데이터를 얻을 수 있습니다.
 df['A']
@@ -298,6 +306,7 @@ df['A']
 ```
 
 `[]`을 이용하여 특정 범위의 행을 슬라이싱할 수 있습니다.
+
 ```python
 # 0번~2번 행을 슬라이싱 합니다.
 df[0:3]
@@ -362,6 +371,7 @@ df.loc['20130102',['A','B']]
 ```
 
 인덱스명, 컬럼명을 하나씩 선택하면 스칼라값을 가져올 수 있습니다.
+
 ```python
 # 행은 첫번째 선택, 컬럼은 'A' 선택
 df.loc[dates[0],'A']
@@ -436,6 +446,7 @@ df.iat[1,1]
 ### 조건으로 가져오기 - Boolean Indexing
 
 하나의 컬럼의 값에 따라 행들을 선택할 수 있습니다.
+
 ```python
 df[df['A'] > 0]
 # 	                    A	        B	        C	        D
@@ -445,6 +456,7 @@ df[df['A'] > 0]
 ```
 
 `DataFrame`의 값 조건에 해당하는 것만 선택할 수도 있습니다.
+
 ```python
 df[df > 0]
 #                       A           B	       C	       D
@@ -457,6 +469,7 @@ df[df > 0]
 ```
 
 `isin()`을 이용하여 필터링을 할 수 있습니다.
+
 ```python
 # df를 복사합니다.
 df2 = df.copy()
@@ -482,6 +495,7 @@ df2[df2['E'].isin(['two','four'])]
 `DataFrame` 안에 있는 데이터를 변경하려고 합니다.
 
 우선 `Series`를 하나 만들고 기존에 생성했던 `DataFrame`에 붙여보겠습니다.
+
 ```python
 s1 = pd.Series([1,2,3,4,5,6], index=pd.date_range('20130102',periods=6))
 # 2013-01-02    1
@@ -497,6 +511,7 @@ df['F'] = s1
 ```
 
 데이터 선택하기와 같은 속성 `at`, `iat`, `loc`, `iloc` 등을 그대로 사용하면 됩니다.
+
 ```python
 # 0번째 인덱스, 'A' 컬럼을 0으로 변경
 df.at[dates[0],'A'] = 0
@@ -518,6 +533,7 @@ df
 ```
 
 조건문(where)으로 선택하여 데이터를 변경할 수도 있습니다.
+
 ```python
 # 기존 DataFrame 복사
 df2 = df.copy()
@@ -559,6 +575,7 @@ df1
 
 `DataFrame`의 `dropna()`를 통해 결측데이터를 삭제(drop)할 수 있습니다.
 `how='any'`는 값들 중 하나라도 NaN인 경우 삭제입니다. `how='all'`은 전체가 NaN인 경우 삭제입니다.
+
 ```python
 df1.dropna(how='any')
 #                       A	       B	        C	D	  F   E
@@ -566,6 +583,7 @@ df1.dropna(how='any')
 ```
 
 `DataFrame`의 `fillna()`를 통해 결측데이터에 값을 넣을 수도 있습니다.
+
 ```python
 df1.fillna(value=5)
 #                       A	        B	        C	D	  F	  E
@@ -576,6 +594,7 @@ df1.fillna(value=5)
 ```
 
 `pd.isnull()`을 통해 결측데이터 여부를 Boolean으로 가져올 수 있습니다.
+
 ```python
 pd.isnull(df1)
 #                   A	    B	    C	    D	    F	    E
@@ -595,6 +614,7 @@ pd.isnull(df1)
 일반적으로 결측데이터는 빼고 계산됩니다.
 
 `DataFrame`의 `mean()`으로 평균을 구할 수 있습니다.
+
 ```python
 df.mean()
 # A   -0.083621
@@ -621,6 +641,7 @@ df.mean(1)
 ```
 
 만약 다른 차원의 오브젝트들 간 연산이 필요한 경우 축만 맞춰진다면 자동으로 연산을 수행합니다.
+
 ```python
 # 데이터 시프트 연산 (2개씩 밀립니다.)
 s = pd.Series([1,3,5,np.nan,6,8], index=dates).shift(2)
@@ -671,6 +692,7 @@ df.apply(lambda x: x.max() - x.min())
 > 이 장에 대해 자세한 설명은 [Histogramming and Discretization](https://pandas.pydata.org/pandas-docs/stable/getting_started/basics.html#basics-discretization)을 참고하세요.
 
 `Series` 데이터의 각 값이 어떤 분포를 이루는지 히스토그램 형식으로 볼 수 있습니다.
+
 ```python
 s = pd.Series(np.random.randint(0, 7, size=10))
 # 0    5
@@ -701,6 +723,7 @@ s.value_counts()
 `Series`에서 문자열 관련된 함수들은 `.str` 속성에 포함되어 있습니다.
 
 `str.lower()`를 통해 문자를 소문자로 변경할 수 있습니다.
+
 ```python
 s = pd.Series(['A', 'B', 'C', 'Aaba', 'Baca', np.nan, 'CABA', 'dog', 'cat'])
 
@@ -728,6 +751,7 @@ s.str.lower()
 > 이 장에 대해 자세한 설명은 [Merging section](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html#merging)을 확인하세요.
 
 `concat()`을 이용하여 이어붙이는 연산(Concatenating)을 할 수 있습니다.
+
 ```python
 df = pd.DataFrame(np.random.randn(10, 4))
 #           0	       1	        2       	3
@@ -785,6 +809,7 @@ pd.merge(left, right, on='key')
 ```
 
 key가 다른 경우도 보겠습니다.
+
 ```python
 left = pd.DataFrame({'key': ['foo', 'bar'], 'lval': [1, 2]})
 #   key	 lval
@@ -816,6 +841,7 @@ pd.merge(left, right, on='key')
 > 이 장에 대해 자세한 설명은 [Grouping section](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#groupby)을 참고하세요.
 
 먼저 `DataFrame`을 하나 생성하겠습니다.
+
 ```python
 df = pd.DataFrame({'A' : ['foo', 'bar', 'foo', 'bar', 'foo', 'bar', 'foo', 'foo'],
                                     'B' : ['one', 'one', 'two', 'three','two', 'two', 'one', 'three'],
@@ -833,6 +859,7 @@ df = pd.DataFrame({'A' : ['foo', 'bar', 'foo', 'bar', 'foo', 'bar', 'foo', 'foo'
 ```
 
 특정 컬럼 기준으로 먼저 그룹화를 진행한 후 sum()을 적용합니다.
+
 ```python
 #A 컬럼이 같은 것끼리 묶고, sum()
 df.groupby('A').sum()
@@ -862,6 +889,7 @@ df.groupby(['A','B']).sum()
 ### 스택 - Stack
 
 먼저 새로운 `DataFrame`을 하나 생성하겠습니다.
+
 ```python
 tuples = list(zip(*[['bar', 'bar', 'baz', 'baz', 'foo', 'foo', 'qux', 'qux'],
                     ['one', 'two', 'one', 'two', 'one', 'two', 'one', 'two']]))
@@ -880,6 +908,7 @@ df2 = df[:4]
 ```
 
 `DataFrame`의 `stack()`은 모든 데이터들을 인덱스 레벨로 변형합니다. 이를 압축(compresses)한다고 표현합니다.
+
 ```python
 stacked = df2.stack()
 
@@ -896,6 +925,7 @@ stacked = df2.stack()
 ```
 
 `unstack()` 을 통해 "stacked"된 `DataFrame` 이나 `Series` 를 원래 형태로 되돌릴 수 있습니다. 되돌리는(압축 해제) 것의 레벨을 정할 수 있습니다.
+
 ```python
 # 원래 상태로 되돌립니다. (레벨 -1)
 stacked.unstack()
@@ -929,6 +959,7 @@ stacked.unstack(0)
 > 이 장에 대해 자세한 설명은 [Pivot Tables](https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html#reshaping-pivot)을 참고하세요.
 
 우선 `DataFrame`을 하나 생성하겠습니다.
+
 ```python
 df = pd.DataFrame({'A' : ['one', 'one', 'two', 'three'] * 3,
                    'B' : ['A', 'B', 'C'] * 4,
@@ -951,6 +982,7 @@ df = pd.DataFrame({'A' : ['one', 'one', 'two', 'three'] * 3,
 ```
 
 `pd.pivot_table()`을 통해 새로운 피벗으로 테이블을 만들 수 있습니다.
+
 ```python
 pd.pivot_table(df, values='D', index=['A', 'B'], columns=['C'])
 # 	    C	      bar	     foo
@@ -976,6 +1008,7 @@ pd.pivot_table(df, values='D', index=['A', 'B'], columns=['C'])
 > 이 장에 대해 자세한 설명은 [Time Series section](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries)을
 
 `resample()`을 이용하여 데이터 샘플링을 할 수 있습니다.
+
 ```python
 # 1초 단위로 100개의 index 생성
 rng = pd.date_range('1/1/2012', periods=100, freq='S')
@@ -989,6 +1022,7 @@ ts.resample('5Min').sum()
 ```
 
 다양한 타임존으로 변경할 수도 있습니다.
+
 ```python
 rng = pd.date_range('3/6/2012 00:00', periods=5, freq='D')
 ts = pd.Series(np.random.randn(len(rng)), rng)
@@ -1021,6 +1055,7 @@ ts_utc.tz_convert('US/Eastern')
 ```
 
 시간 간격(TimeSpan)도 쉽게 표현할 수 있습니다.
+
 ```python
 # 매달('M') 기준으로 생성
 rng = pd.date_range('1/1/2012', periods=5, freq='M')
@@ -1051,6 +1086,7 @@ ps.to_timestamp()
 
 기간(period)과 시간(timestamp) 사이에 산술적인 기능들을 적용할 수 있습니다.
 아래 예제에서는 분기별로 9시간을 더한 시각을 기준으로 볼 수 있습니다.
+
 ```python
 # 분기 단위로 시간 인덱스를 생성합니다.
 prng = pd.period_range('1990Q1', '2000Q4', freq='Q-NOV')
@@ -1075,6 +1111,7 @@ ts.head()
 > 이 장에 대해 자세한 설명은 [categorical introduction](https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html#categorical)와 [API documentation](https://pandas.pydata.org/pandas-docs/stable/reference/arrays.html#api-arrays-categorical)을 참고하세요.
 
 `.astype("category")`로 범주형 데이터 타입으로 변환할 수 있습니다.
+
 ```python
 df = pd.DataFrame({"id":[1,2,3,4,5,6], "raw_grade":['a', 'b', 'b', 'a', 'a', 'e']})
 # category형 데이터 타입으로 변환합니다.
@@ -1092,11 +1129,13 @@ df["grade"]
 ```
 
 `cat.categories` 속성을 이용하여 카테고리명을 다시 만들 수 있습니다.
+
 ```python
 df["grade"].cat.categories = ["very good", "good", "very bad"]
 ```
 
 `cat.set_categories()`를 이용하여 카테고리를 재정의할 수 있습니다. 재정의는 현재 갖고 있지 않은 범주도 추가할 수 있습니다.
+
 ```python
 df["grade"] = df["grade"].cat.set_categories(["very bad", "bad", "medium", "good", "very good"])
 # 0    very good
@@ -1110,6 +1149,7 @@ df["grade"] = df["grade"].cat.set_categories(["very bad", "bad", "medium", "good
 ```
 
 범주형 데이터를 정렬할 수도 있습니다. 정렬 기준은 문자 기준이 아닌 범주형 자료를 정의할 때 만든 순서로 정렬됩니다.
+
 ```python
 df.sort_values(by="grade")
 #   id	raw_grade	grade
@@ -1122,6 +1162,7 @@ df.sort_values(by="grade")
 ```
 
 범주형 데이터 기준으로 그룹화하여 빈도수를 출력하면, 비어있는 범주도 쉽게 확인할 수 있습니다.
+
 ```python
 df.groupby("grade").size()
 # grade
@@ -1140,6 +1181,7 @@ df.groupby("grade").size()
 > 이 장에 대해 자세한 설명은 [Plotting](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization)을 참고하세요.
 
 데이터 시각화는 [matplotlib](https://matplotlib.org/) API를 사용합니다.
+
 ```python
 # 랜덤 값으로 1000개의 행을 생성합니다.
 ts = pd.Series(np.random.randn(1000), index=pd.date_range('1/1/2000', periods=1000))
@@ -1152,6 +1194,7 @@ ts.plot()
 ![](https://laboputer.github.io/assets/img/ml/python/pandas/2.png)
 
 `DataFrame`에서 `plot()`은 모든 컬럼을 한번에 보여주는 편리함도 있습니다.
+
 ```python
 df = pd.DataFrame(np.random.randn(1000, 4), index=ts.index,
                   columns=['A', 'B', 'C', 'D'])
@@ -1174,11 +1217,13 @@ plt.legend(loc='best')
 > 이 장에 대해 자세한 설명은 [Writing to a csv file](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-store-in-csv), [Reading from a csv file](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-read-csv-table)을 참고하세요.
 
 `.to_csv()`로 `DataFrame`을 쉽게 csv 파일로 쓸 수 있습니다.
+
 ```python
 df.to_csv('foo.csv')
 ```
 
 `pd.read_csv()`로 csv파일을 `DataFrame`으로 읽어올 수 있습니다.
+
 ```python
 pd.read_csv('foo.csv')
 # Unnamed:              0	A	B	C	D
@@ -1200,11 +1245,13 @@ pd.read_csv('foo.csv')
 > 이 장에 대해 자세한 설명은 [HDFStores](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-hdf5)을 참고하세요.
 
 `to_hdf()`로 HDF5 형식으로 쓸 수 있습니다.
+
 ```python
 df.to_hdf('foo.h5','df')
 ```
 
 `pd.read_hdf()`로 hdf5 형식을 `DataFrame`으로 읽어올 수 있습니다.
+
 ```python
 pd.read_hdf('foo.h5','df')
 # 	                A	        B	        C	        D
@@ -1219,11 +1266,13 @@ pd.read_hdf('foo.h5','df')
 > 이 장에 대해 자세한 설명은 [MS Excel](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-excel)을 참고하세요.
 
 `to_excel()`로 xlsx 파일 형식으로 쓸 수 있습니다.
+
 ```python
 df.to_excel('foo.xlsx', sheet_name='Sheet1')
 ```
 
 `pd.read_excel()`로 xlsx 파일로부터 `DataFrame`으로 읽어올 수 있습니다.
+
 ```python
 pd.read_excel('foo.xlsx', 'Sheet1', index_col=None, na_values=['NA'])
 ```
