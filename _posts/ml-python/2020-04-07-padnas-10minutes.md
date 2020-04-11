@@ -34,7 +34,7 @@ tags: python tutorial pandas
 이 글에서는 아래와 같이 3가지 패키지가 활용됩니다.
 > Python에서 아래 코드가 실행되지 않는 경우 관련 패키지를 pip롤 통해 설치하시기 바랍니다.
 
-```
+```python
 import pandas as pd
 import numpy as np
 
