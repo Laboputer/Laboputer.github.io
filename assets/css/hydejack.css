@@ -62,9 +62,9 @@
   word-break: break-word;
 }
 
-.markdown-body a {
+/* .markdown-body a {
   background: #FFF9C4;
-}
+} */
 
 .markdown-body code,
 .markdown-body kbd,
