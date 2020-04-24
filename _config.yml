@@ -30,10 +30,10 @@ image:               /assets/img/sidebar_background.jpg
 color:               '#34558b'
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
-font_heading:        "'Lato', 'Sans-serif'"
+font_heading:        "Consolas, 'Nanum Myeongjo'"
 
 # The text font. Expects a string that is a valid CSS font-family value.
-font:                "'Lato', 'Sans-serif'"
+font:                "Consolas, 'Nanum Myeongjo'"
 
 # The string encoding what fonts to fetch from Google Fonts.
 # See: https://qwtel.com/hydejack/docs/configuration/
