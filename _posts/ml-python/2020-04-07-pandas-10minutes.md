@@ -91,7 +91,7 @@ dates = pd.date_range('20130101', periods=6)
 #               dtype='datetime64[ns]', freq='D')
 
 df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
-#                       A           B           C           D
+#                       A               B               C               D
 # 2013-01-01	 1.571507	 0.160021	-0.015071	-0.118588
 # 2013-01-02	-1.037697	-0.891196	 0.495447	 0.453095
 # 2013-01-03	-1.682384	-0.026006	-0.152957	-0.212614
@@ -114,7 +114,7 @@ df2 = pd.DataFrame({'A':1.,
                    'E':pd.Categorical(["test","train","test","train"]),
                    'F':'foo'})
 
-#     A          B    C D       E     F
+#         A              B        C     D           E     F
 # 0	1.0	2013-01-02	1.0	3	test	foo
 # 1	1.0	2013-01-02	1.0	3	train	foo
 # 2	1.0	2013-01-02	1.0	3	test	foo
@@ -129,9 +129,9 @@ df2 = pd.DataFrame({'A':1.,
 ```python
 df2.dtypes
 # A           float64
-# B    datetime64[ns]
+# B     datetime64[ns]
 # C           float32
-# D             int32
+# D            int32
 # E          category
 # F            object
 # dtype: object
