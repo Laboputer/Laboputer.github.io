@@ -73,7 +73,23 @@ pip install (패키지 이름)
 
 [머신러닝 패키지 모음 다운로드](https://laboputer.github.io/assets/img/ml/python/setup-python/requirements.txt)
 
-다운로드 받으시고 아래와 같은 명령어를 입력하면 한번에 설치됩니다. 이미지는 다운로드 받은 파일을 **C:/ 경로**에 복사했는데 만약 파일의 위치가 다르면 명령어에서 경로만 변경하여 입력하시면 됩니다.
+or
+
+```
+numpy
+scipy
+matplotlib
+ipython
+scikit-learn
+pandas
+pillow
+wrapt
+tensorflow==2.0.0
+mglearn
+```
+텍스트파일(requirements.txt)을 생성하여 위 내용을 입력하셔도 됩니다.
+
+그 다음 아래와 같은 명령어를 입력하면 한번에 설치됩니다. 이미지는 다운로드 받은 파일을 **C:/ 경로**에 복사했는데 만약 파일의 위치가 다르면 명령어에서 경로만 변경하여 입력하시면 됩니다.
 
 ```
 pip install -r C:/requirements.txt
