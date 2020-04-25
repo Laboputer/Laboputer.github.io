@@ -92,7 +92,7 @@ dates = pd.date_range('20130101', periods=6)
 
 df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
 
-#          A         B         C         D
+#                    A         B         C         D
 # 2013-01-01  1.571507  0.160021 -0.015071 -0.118588
 # 2013-01-02 -1.037697 -0.891196  0.495447  0.453095
 # 2013-01-03 -1.682384 -0.026006 -0.152957 -0.212614
@@ -114,7 +114,7 @@ df2 = pd.DataFrame({'A':1.,
                    'D':np.array([3]*4,dtype='int32'),
                    'E':pd.Categorical(["test","train","test","train"]),
                    'F':'foo'})
-#     A          B    C  D      E    F
+#      A         B    C  D      E    F
 # 0  1.0 2013-01-02  1.0  3   test  foo
 # 1  1.0 2013-01-02  1.0  3  train  foo
 # 2  1.0 2013-01-02  1.0  3   test  foo
@@ -129,10 +129,10 @@ df2 = pd.DataFrame({'A':1.,
 ```python
 df2.dtypes
 # A           float64
-# B    datetime64[ns]
-# C           float32
+# B     datetime64[ns]
+# C            float32
 # D             int32
-# E          category
+# E           category
 # F            object
 # dtype: object
 ```
@@ -143,16 +143,16 @@ df2.dtypes
 
 ```python
 df2.<TAB>
-# df2.A                  df2.bool
-# df2.abs                df2.boxplot
-# df2.add                df2.C
+# df2.A                df2.bool
+# df2.abs               df2.boxplot
+# df2.add               df2.C
 # df2.add_prefix         df2.clip
 # df2.add_suffix         df2.clip_lower
-# df2.align              df2.clip_upper
-# df2.all                df2.columns
-# df2.any                df2.combine
-# df2.append             df2.combine_first
-# df2.apply              df2.consolidate
+# df2.align             df2.clip_upper
+# df2.all              df2.columns
+# df2.any               df2.combine
+# df2.append            df2.combine_first
+# df2.apply             df2.consolidate
 # df2.applymap
 # df2.D
 ```
@@ -179,7 +179,7 @@ df2.A
 ```python
 # 첫번째 행부터 5개(기본값)를 보여줍니다.
 df.head()
-#          A         B         C         D
+#                   A         B         C         D
 # 2013-01-01  1.571507  0.160021 -0.015071 -0.118588
 # 2013-01-02 -1.037697 -0.891196  0.495447  0.453095
 # 2013-01-03 -1.682384 -0.026006 -0.152957 -0.212614
@@ -188,7 +188,7 @@ df.head()
 
 # 마지막 행에서 3개를 보여줍니다.
 df.tail(3)
-#           A         B         C         D
+#                   A         B         C         D
 # 2013-01-04 -0.108757 -0.958267  0.407331  0.187037
 # 2013-01-05  1.092380  2.841777 -0.125714 -0.760722
 # 2013-01-06  1.638509 -0.601126 -1.043931 -1.330950
