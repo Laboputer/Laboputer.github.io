@@ -7,17 +7,17 @@ tags: python tutorial pandas
 ---
 > 판다스 공식홈페이지 [10 minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)에서 소개된 기본적인 사용법을 따라하면서 번역한 글입니다. 직역하기 보다는 간단하게 요약하고 설명이 더 필요한 부분은 추가하였으니 도움되시길 바랍니다.
 
-> 이 글을 읽으신 후에 더 자세한 내용이 필요하시면 아래 링크를 확인해보세요.
+이 글을 읽으신 후에 더 자세한 내용이 필요하시면 아래 링크를 확인해보세요.
 
 - [공식 홈페이지](https://pandas.pydata.org/)
 - [Documentation](https://pandas.pydata.org/docs/#)
 - Tutorial
-    1. [10 minuts to pandas](https://pandas.pydata.org/docs/getting_started/10min.html) (이 글에서 소개된 내용)
+    1. [10 minutes to pandas](https://pandas.pydata.org/docs/getting_started/10min.html) (이 글에서 소개된 내용)
     2. [Cookbook](http://pandas.pydata.org/pandas-docs/stable/cookbook.html#cookbook)
 
 ## 목차
 ---
-처음부터 읽기를 권장하지만, 목차 중 원하는 챕터만 링크 클릭하셔서 보셔도 됩니다.
+포스팅 하나로 정리하다보니 내용이 많아 원하는 챕터만 링크 클릭하셔서 보셔도 됩니다.
 
 1. [오브젝트 생성 - Object Creation](#item1)
 2. [데이터 확인하기 - Viewing Data](#item2)
