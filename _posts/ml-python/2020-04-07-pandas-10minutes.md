@@ -19,18 +19,18 @@ tags: python tutorial pandas
 ---
 포스팅 하나로 정리하다보니 내용이 많아 원하는 챕터만 링크 클릭하셔서 보셔도 됩니다.
 
-1. [오브젝트 생성 - Object Creation](#item1)
-2. [데이터 확인하기 - Viewing Data](#item2)
-3. [데이터 선택하기 - Selection](#item3)
-4. [결측 데이터 - Missing Data](#item4)
-5. [데이터 연산 - Operations](#item5)
-6. [데이터 합치기 - Merge](#item6)
-7. [그룹화 - Grouping](#item7)
-8. [데이터 구조 변경하기 - Reshaping](#item8)
-9. [시계열 데이터 - Time Series](#item9)
-10. [범주형 데이터 - Categoricals](#item10)
-11. [그래프 시각화 - Plotting](#item11)
-12. [파일 입출력 - Getting Data In/Out](#item12)
+1. [오브젝트 생성 (Object Creation)](#item1)
+2. [데이터 확인하기 (Viewing Data)](#item2)
+3. [데이터 선택하기 (Selection)](#item3)
+4. [결측 데이터 (Missing Data)](#item4)
+5. [데이터 연산 (Operations)](#item5)
+6. [데이터 합치기 (Merge)](#item6)
+7. [그룹화 (Grouping)](#item7)
+8. [데이터 구조 변경하기 (Reshaping)](#item8)
+9. [시계열 데이터 (Time Series)](#item9)
+10. [범주형 데이터 (Categoricals)](#item10)
+11. [그래프 시각화 (Plotting](#item11)
+12. [파일 입출력 (Getting Data In/Out)](#item12)
 
 ## Pandas
 ---
@@ -51,7 +51,7 @@ import matplotlib.pyplot as plt
 
 <a name="item1"></a>
 
-## 1. 오브젝트 생성 - Object Creation
+## 1. 오브젝트 생성 (Object Creation)
 ---
 판다스(Pandas)에서 사용하는 기본적인 오브젝트(Object)를 생성하는 방법에 대해 소개합니다.
 
@@ -170,7 +170,7 @@ df2.A
 
 <a name="item2"></a>
 
-## 2. 데이터 확인하기 - Viewing Data
+## 2. 데이터 확인하기 (Viewing Data)
 ---
 > 이 장에 대해 자세한 설명은 [Basics section](https://pandas.pydata.org/pandas-docs/stable/getting_started/basics.html#basics)을 확인하세요.
 
@@ -297,7 +297,7 @@ df.sort_values(by='B')
 
 <a name="item3"></a>
 
-## 3. 데이터 선택하기 - Selection 
+## 3. 데이터 선택하기 (Selection) 
 ---
 > 이 장에 대해 자세한 설명은 [Indexing and Selecting Data](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing)와 [MultiIndex / Advanced Indexing](https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html#advanced)을 확인하세요.
 
@@ -595,7 +595,7 @@ df2
 
 <a name="item4"></a>
 
-## 4. 결측 데이터 - Missing Data
+## 4. 결측 데이터 (Missing Data)
 ---
 데이터를 다루다보면 값이 없는 경우가 자주 생깁니다. 데이터가 없는 것을 결측 데이터라고 합니다. 판다스에서는 이러한 값이 `NaN` 으로 표현됩니다. 
 기본적으로 결측 데이터가 있는 경우에는 연산에 포함되지 않습니다.
@@ -649,7 +649,7 @@ pd.isnull(df1)
 
 <a name="item5"></a>
 
-## 5. 데이터 연산 - Operations
+## 5. 데이터 연산 (Operations)
 ---
 > 이 장에 대해 자세한 설명은 [Basic section on Binary Ops](https://pandas.pydata.org/pandas-docs/stable/getting_started/basics.html#basics-binop)을 참고하세요.
 
@@ -784,7 +784,7 @@ s.str.lower()
 
 <a name="item6"></a>
 
-## 6. 데이터 합치기 - Merge
+## 6. 데이터 합치기 (Merge)
 ---
 판다스는 `Series`와 `DataFrame` 간에 쉽게 데이터를 합칠 수 있도록 `join`과 `merge`와 같은 연산을 제공합니다.
 
@@ -873,7 +873,7 @@ pd.merge(left, right, on='key')
 
 <a name="item7"></a>
 
-## 7. 그룹화 - Grouping
+## 7. 그룹화 (Grouping)
 ---
 `group by`에 관련된 내용은 아래와 같은 과정을 말합니다.
 - Spltting : 특정 기준으로 데이터 나누기
@@ -924,7 +924,7 @@ df.groupby(['A','B']).sum()
 
 <a name="item8"></a>
 
-## 8. 데이터 구조 변경하기 - Reshaping
+## 8. 데이터 구조 변경하기 (Reshaping)
 ---
 > 이 장에 대해 자세한 설명은 [Hierarchical Indexing](https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html#advanced-hierarchical)와 [Reshaping](https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html#reshaping-stacking)을 확인하세요.
 
@@ -1041,7 +1041,7 @@ pd.pivot_table(df, values='D', index=['A', 'B'], columns=['C'])
 
 <a name="item9"></a>
 
-## 9. 시계열 데이터 - Time Series
+## 9. 시계열 데이터 (Time Series)
 ---
 판다스는 시계열 데이터를 주기를 변경하거나 샘플링하는데 간단하고 강력한 기능을 제공합니다. 또한 금융 데이터를 다루기에도 편리합니다.
 (예를 들어 1초마다 쌓은 데이터를 5분 단위로 변경하고 싶을 때)
@@ -1145,7 +1145,7 @@ ts.head()
 
 <a name="item10"></a>
 
-## 10. 범주형 데이터 - Categoricals
+## 10. 범주형 데이터 (Categoricals)
 ---
 `DataFrame` 안에는 범주형 데이터도 넣을 수 있습니다.
 
@@ -1217,7 +1217,7 @@ df.groupby("grade").size()
 
 <a name="item11"></a>
 
-## 11. 그래프 시각화 - Plotting
+## 11. 그래프 시각화 (Plotting)
 ---
 > 이 장에 대해 자세한 설명은 [Plotting](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#visualization)을 참고하세요.
 
@@ -1250,7 +1250,7 @@ plt.legend(loc='best')
 
 <a name="item12"></a>
 
-## 12. 파일 입출력 - Getting Data In/Out
+## 12. 파일 입출력 (Getting Data In/Out)
 ---
 `DataFrame`을 파일로 생성하거나 파일을 `DataFrame`으로 읽는 방법입니다. 
 
