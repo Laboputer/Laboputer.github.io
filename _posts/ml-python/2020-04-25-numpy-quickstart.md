@@ -12,7 +12,7 @@ tags: python tutorial numpy
 - Numpy
     - [공식 홈페이지](https://numpy.org/)
     - [Documentation](https://numpy.org/doc/1.18/)
-    - [Quick Start](https://numpy.org/devdocs/user/quickstart.html) (이 글에서 소개된 내용)
+    - [Quickstart Tutorial](https://numpy.org/devdocs/user/quickstart.html) (이 글에서 소개된 내용)
 - Scipy
     - [공식 홈페이지](https://www.scipy.org/)
     - [Documentation](https://www.scipy.org/docs.html)
@@ -21,12 +21,12 @@ tags: python tutorial numpy
  ## 목차
  ---
  
- 1. [기본 개념 - The Basics](#item1)
- 2. [Shape 변경 - Shape Manipulation](#item2)
- 3. [데이터 복사 - Copies and Views](#item3)
- 4. [브로드캐스팅 - Less Basic](#item4)
- 5. [인덱싱 - Advanced Indexing and index tricks](#item5)
- 6. [선형대수 - Linear Algebra](#item6)
+ 1. [기본 개념 (The Basics)](#item1)
+ 2. [Shape 변경 (Shape Manipulation)](#item2)
+ 3. [데이터 복사 (Copies and Views)](#item3)
+ 4. [브로드캐스팅 (Less Basic)](#item4)
+ 5. [인덱싱 (Advanced Indexing and index tricks)](#item5)
+ 6. [선형대수 (Linear Algebra)](#item6)
  
 ## Numpy
 ---
@@ -197,7 +197,6 @@ print(x)
 #  72. 73. 74. 75. 76. 77. 78. 79. 80. 81. 82. 83. 84. 85. 86. 87. 88. 89.
 #  90. 91. 92. 93. 94. 95. 96. 97. 98. 99.]
 ```
-    
 
 ![](https://laboputer.github.io/assets/img/ml/python/numpy/2.JPG)
 
@@ -206,18 +205,18 @@ print(x)
 1D와 2D 배열은 설명하지 않아도 어떻게 출력되는지 확인하실 수 있으나, 3D 배열은 2차원이 N개 출력되는 형식으로 나타납니다.
 
 ```python
-a = np.arange(6)                         # 1d array
+a = np.arange(6)
 print(a)
 # [0 1 2 3 4 5]
 
-b = np.arange(12).reshape(4,3)           # 2d array
+b = np.arange(12).reshape(4,3)
 print(b)
 # [[ 0  1  2]
 #  [ 3  4  5]
 #  [ 6  7  8]
 #  [ 9 10 11]]
 
-c = np.arange(24).reshape(2,3,4)         # 3d array
+c = np.arange(24).reshape(2,3,4)
 print(c)
 # [[[ 0  1  2  3]
 #   [ 4  5  6  7]
@@ -246,7 +245,7 @@ print(np.arange(10000).reshape(100,100))
     
 ### 기본 연산 - Basic Operations
 
-numpy에서 수치연산은 기본적으로 element wise 연산입니다. 다시 말해 숫자가 각각의 요소에 연산이 적용됩니다
+numpy에서 수치연산은 기본적으로 element wise 연산입니다. 숫자가 각각의 요소에 연산이 적용됩니다.
 
 ```python
 a = np.array( [20,30,40,50] )
@@ -396,8 +395,8 @@ print(np.sqrt(B))
     
 ### 인덱싱, 슬라이싱, 반복 - Indexing, Slicing and Iterating
 
-Numpy에서 인덱싱과 슬라이싱에 대한 개념은 Python과 동일하며,
-자세한 설명은 [5. 인덱싱](#item5) 에서 하겠습니다.
+Numpy에서 인덱싱과 슬라이싱에 대한 개념은 Python과 기본적으로 동일합니다.
+설명이 필요하신 분은 [5. 인덱싱](#item5) 에서 다시 다룹니다.
 
 ```python
 a = np.arange(10)**3
@@ -411,7 +410,7 @@ print(a[2])
 print(a[2:5])
 # [ 8 27 64]
 
-# 0~5번에서 2 Step 인덱스
+# 0~5번에서 2Step 인덱스
 a[:6:2] = 1000
 print(a)
 # [1000    1 1000   27 1000  125  216  343  512  729]
@@ -972,3 +971,6 @@ np.linalg.eig(j)
 #  array([[0.70710678+0.j        , 0.70710678-0.j        ],
 #         [0.        -0.70710678j, 0.        +0.70710678j]]))
 ```
+
+---
+이 포스팅에서 사용한 코드는 [이곳](https://github.com/Laboputer/LearnML/blob/master/02.%20%5BPOST%5D/51.%20%5BCode%5D%20Numpy%20Quickstart%20Tutorial.ipynb)에 공개되어 있으며 다운로드 받으실 수 있습니다.
