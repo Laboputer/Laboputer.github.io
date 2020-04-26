@@ -18,16 +18,17 @@ tags: python tutorial numpy
     - [Documentation](https://www.scipy.org/docs.html)
     - [Scipy Tutorial](https://docs.scipy.org/doc/scipy/reference/tutorial/index.html)
 
- ## 목차
+## 목차
  ---
- 
+
  1. [기본 개념 (The Basics)](#item1)
  2. [Shape 변경 (Shape Manipulation)](#item2)
  3. [데이터 복사 (Copies and Views)](#item3)
- 4. [브로드캐스팅 (Less Basic)](#item4)
+ 4. [브로드캐스팅 (Broadcasting rules)](#item4)
  5. [인덱싱 (Advanced Indexing and index tricks)](#item5)
  6. [선형대수 (Linear Algebra)](#item6)
  
+
 ## Numpy
 ---
 
