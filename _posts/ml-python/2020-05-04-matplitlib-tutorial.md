@@ -63,7 +63,8 @@ import numpy.random as npr
 
 > 더 다양한 시각화 방법이 궁금하신 분은 [Gallery](https://matplotlib.org/gallery/index.html)를 확인하세요.
  
- ### 참고사항
+### 참고사항
+
 1장에서는 가장 기본적인 Line plot(선 차트)을 가지고 `Figure`의 구성요소들을 정리하고 2장부터는 다양한 모양의 시각화 방법들을 정리하였습니다. `Figure`에 다양하게 넣을 수 있는 구성요소들을 알아보고 싶으시면 1장을 보시고, 단순히 다양한 시각화 방법을 보시고 싶은 분들은 각 장에서 사용법만 읽으셔도 됩니다.
 
 <a name="item2"></a>
@@ -703,6 +704,8 @@ ax.set_zlabel('Z values')
 plt.title("3D Surface Plot")
 plt.show()
 ```
+
+![](https://laboputer.github.io/assets/img/ml/python/matplotlib/output_56_0.png)
 
 아래 예제는 2차원 공간에 `scatter()`를 사용한 것처럼 Axes3D 공간에 `scatter()`를 생성한 모습입니다.
 
