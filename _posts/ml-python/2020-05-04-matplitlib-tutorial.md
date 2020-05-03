@@ -726,4 +726,4 @@ plt.show()
 ![](https://laboputer.github.io/assets/img/ml/python/matplotlib/output_58_0.png)
 
 ---
-이 포스팅에서 사용한 코드는 [이곳](https://github.com/Laboputer/LearnML/blob/master/02.%20%5BPOST%5D/51.%20%5BCode%5D%20Numpy%20Quickstart%20Tutorial.ipynb)에 공개되어 있으며 다운로드 받으실 수 있습니다.
+이 포스팅에서 사용한 코드는 [이곳](https://github.com/Laboputer/LearnML/blob/master/02.%20%5BPOST%5D/52.%20%5BCode%5D%20Matplotlib%20Tutorial.ipynb)에 공개되어 있으며 다운로드 받으실 수 있습니다.
