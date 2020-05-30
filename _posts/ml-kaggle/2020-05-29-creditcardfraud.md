@@ -254,6 +254,20 @@ tmp = tmp.rename(columns = {"index" : "Target", "Class" : "Count"})
 
 tmp
 ```
+<style>
+table th:first-of-type {
+    width: 5%;
+}
+table th:nth-of-type(2) {
+    width: 10%;
+}
+table th:nth-of-type(3) {
+    width: 10%;
+}
+table th:nth-of-type(4) {
+    width: 10%;
+}
+</style>
 
 | |Target|Count|Percent(%)|
 |---:|---:|---:|---:|
@@ -309,11 +323,19 @@ Train, Test 데이터를 각각 사기/정상 으로 분류하여 보면 다음�
 ```python
 pd.DataFrame([[sum(y_train == 0), sum(y_test == 0)], [sum(y_train == 1), sum(y_test == 1)]], 
              columns=['train', 'test'], index=['0 (non-fraud)', '1 (fraud)'])
-
-# 	train	test
-# 0 (non-fraud)	199022	85293
-# 1 (fraud)	342	150
 ```
+
+<style>
+table th:first-of-type {
+    width: 10%;
+}
+table th:nth-of-type(2) {
+    width: 10%;
+}
+table th:nth-of-type(3) {
+    width: 10%;
+}
+</style>
 
 | |train|test|
 |---:|---:|---:|
