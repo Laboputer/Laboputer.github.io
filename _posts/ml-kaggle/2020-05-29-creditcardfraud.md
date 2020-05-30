@@ -19,9 +19,9 @@ tags: kaggle autoencoder anomaly-detection tutorial
 
 ### Highly unbalanced datasets
 
-Highly unbalanced 하다는 것은 아무런 예측을 하지 않고 모두 정상이라고 판단해도 정확도(Accuracy)가 99.83%로 아주 높습니다. 이렇게 정확도(Accuracy)라는 수치로는 좋은 모델인지 쉽게 평가할 수 없기 때문에 이러한 문제에서는 별도의 평가지표로 모델의 정확성을 판단하는 것이 좋습니다. 또한 일반적으로 이런 문제는 실제 사기 거래인 데이터를 확보하기도 어려운 경우가 많습니다.
+이러한 형태의 데이터셋은 아무런 예측을 하지 않고 모두 정상이라고 판단해도 정확도(Accuracy)가 99.83%로 아주 높습니다. 이렇게 정확도(Accuracy)라는 수치로는 좋은 모델인지 쉽게 평가할 수 없기 때문에 이러한 문제에서는 별도의 평가지표로 모델의 정확성을 판단하는 것이 좋습니다. 또한 일반적으로 이런 문제는 실제 사기 거래인 데이터를 확보하기도 어려운 경우가 많습니다.
 
-따라서 이 포스팅은 신용카드 사기 거래 감지하기(Credit Card Fraud Detection) 문제를 통해 Highly unbalnced한 데이터셋을 다루기 위한 모델 평가 지표와 라벨링이 되어 있지 않은 데이터 (사기 거래인지 모르는)를 어떻게 접근했는지를 정리한 내용입니다.
+따라서 이 포스팅은 신용카드 사기 거래 감지하기(Credit Card Fraud Detection) 문제를 통해 Highly unbalnced한 데이터셋을 다루기 위한 모델 평가 지표와 레이블 을 알 수 없는 데이터 (사기 거래인지 모르는)를 어떻게 접근했는지를 정리한 내용입니다.
 
 ## 분류 문제의 평가지표 'F1-score'
 ---
@@ -35,7 +35,7 @@ Highly unbalanced 하다는 것은 아무런 예측을 하지 않고 모두 정�
 - Accuracy(정확도): 모든 예측(True 또는 False)이 실제로 맞은 비율
 - Precision(정밀도): 'True' 라고 예측한 것 중 실제로 'True' 인 비율
 - Recall(재현율): 모든 'True'인 것 중 'True'로 예측한 것의 비율
-- f1score: 정밀도, 재현율의 조화평균
+- F1-score: 정밀도, 재현율의 조화평균
 
 예를 들어 1개의 거래만 '사기'라고 예측해서 실제로 맞히면 Precision은 1(100%) 입니다. 한번의 시도가 맞았으니까요. 반면에 전체 거래가 '사기'라고 예측하면 Recall은 무조건 1(100%) 입니다. 모든 '사기' 거래를 예측해냈으니까요. 이상한 지표 같지만 사실 이 각각의 지표가 갖는 바가 중요합니다. Precision을 높이면 Recall이 낮아지고, 반대로 Recall을 높이면 Precision이 낮아질 수 밖에 없는 관계거든요.
 
@@ -253,48 +253,11 @@ tmp['Percent(%)'] = tmp["Class"].apply(lambda x : round(100*float(x) / len(data)
 tmp = tmp.rename(columns = {"index" : "Target", "Class" : "Count"})
 
 tmp
+
+# 	Target	Count	Percent(%)
+# 0	0	284315	99.83
+# 1	1	492	0.17
 ```
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Target</th>
-      <th>Count</th>
-      <th>Percent(%)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>284315</td>
-      <td>99.83</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>492</td>
-      <td>0.17</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
 
 ## Step 2. Data Engneering
 ---
@@ -344,43 +307,11 @@ Train, Test 데이터를 각각 사기/정상 으로 분류하여 보면 다음�
 ```python
 pd.DataFrame([[sum(y_train == 0), sum(y_test == 0)], [sum(y_train == 1), sum(y_test == 1)]], 
              columns=['train', 'test'], index=['0 (non-fraud)', '1 (fraud)'])
+
+# 	train	test
+# 0 (non-fraud)	199022	85293
+# 1 (fraud)	342	150
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>train</th>
-      <th>test</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0 (non-fraud)</th>
-      <td>199022</td>
-      <td>85293</td>
-    </tr>
-    <tr>
-      <th>1 (fraud)</th>
-      <td>342</td>
-      <td>150</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
 ## Step 3. Modeling
 ---
@@ -518,15 +449,15 @@ print(classification_report(y_real, y_pred))
 
 위에서 2가지 모델을 학습한 결과는 아래와 같습니다. 물론, 하이퍼 파라미터들을 어떻게 변경시키느냐에 따라 많이 바뀌겠지만 개념적으로 접근해보겠습니다.
 
-|NO|Model|Precision|Recall|F1score| train-test rate |
-|---|---|---|---|----|----|
+|NO|Model|Precision|Recall|F1score|train-test rate|
+|:---:|:---:|:---:|:---:|:---:|:---:|
 |1|RandomForest|0.93|0.77|0.84|7:3|
 |2|Logistic Regression|0.93|0.74|0.83|7:3|
 
 두 모델 모두 F1-Score가 80% 이상으로 나름대로 좋은 성능을 보여줍니다. 하지만 우리가 실제로 사기 거래라는 것을 모른다면 어떻게 해야 할까요? 모든 거래를 판단할 수 없겠지만 극히 일부 데이터가 사기거래라고 알아냈다면 과연 학습이 될까요? 위와 완전히 동일한 모델로 train-test 비율은 1:9로 다시 학습해보면 아래와 같이 나타납니다.
 
-|NO|Model|Precision|Recall|F1score| train-test rate |
-|---|---|---|---|----|----|
+|NO|Model|Precision|Recall|F1score|train-test rate|
+|:---:|:---:|:---:|:---:|:---:|:---:|
 |1|RandomForest|0.80|0.63|0.71|1:9|
 |2|Logistic Regression|0.28|0.78|0.41|1:9|
 
@@ -711,16 +642,12 @@ print(classification_report(y, pred_y))
 
 최종 학습결과는 아래와 같습니다.
 
-|NO|Model|Precision|Recall|F1score| train-test rate |
-|---|---|---|---|----|----|
+|NO|Model|Precision|Recall|F1score|train-test rate|
+|:---:|:---:|:---:|:---:|:---:|:---:|
 |1-1|RandomForest|0.93|0.77|0.84|7:3|
 |2-1|Logistic Regression|0.93|0.74|0.83|7:3|
 |1-2|RandomForest|0.80|0.63|0.71|1:9|
 |2-2|Logistic Regression|0.28|0.78|0.41|1:9|
 |3|Autoencoder + Logistic Regression|0.83|0.77|0.80|1:9|
 
- 우선 학습데이터가 많은 경우 일반적인 분류 모델인 RandomForest 등도 잘 적용될 수 있지만 데이터가 적은 경우에는 Autoencoder를 포함한 다양한 모델들을 검토해야 합니다.
-
----
-
-이상으로 신용카드 거래 감지 문제를 통해 Highly unbalanced한 데이터셋은 어떤 방식으로 접근하는지 알아보았습니다.
+Higly unbalanced한 데이터셋은 일반적으로 학습 데이터가 잘 수집하면 나름대로 좋은 예측 모델을 만들어낼 수 있었으나, 실제 현실 세계에서는 레이블링이 되어 있는 데이터가 없는 경우가 많습니다. 이러한 경우 어떤 방식으로 접근을 해야될 지 그리고 이렇게 만든 모델을 어떻게 평가할 수 있는지에 대해 정리해보았습니다.
