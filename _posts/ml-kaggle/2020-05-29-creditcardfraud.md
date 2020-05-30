@@ -254,26 +254,11 @@ tmp = tmp.rename(columns = {"index" : "Target", "Class" : "Count"})
 
 tmp
 ```
-<style>
-table th:first-of-type {
-    width: 5%;
-}
-table th:nth-of-type(2) {
-    width: 10%;
-}
-table th:nth-of-type(3) {
-    width: 10%;
-}
-table th:nth-of-type(4) {
-    width: 10%;
-}
-</style>
 
 | |Target|Count|Percent(%)|
 |---:|---:|---:|---:|
 |0|0|284315|99.83|
 |1|1|492|0.17|
-|<img width=20/>|<img width=20/>|<img width=50/>|<img width=50/>|
 
 ## Step 2. Data Engneering
 ---
@@ -325,19 +310,7 @@ pd.DataFrame([[sum(y_train == 0), sum(y_test == 0)], [sum(y_train == 1), sum(y_t
              columns=['train', 'test'], index=['0 (non-fraud)', '1 (fraud)'])
 ```
 
-<style>
-table th:first-of-type {
-    width: 10%;
-}
-table th:nth-of-type(2) {
-    width: 10%;
-}
-table th:nth-of-type(3) {
-    width: 10%;
-}
-</style>
-
-|<div style="width:100px"></div>|<div style="width:100px">train</div>|<div style="width:100px">test</div>|
+| |train|test|
 |---:|---:|---:|
 |0 (non-fraud)|199022|85293|
 |1 (fraud)|342|150|
