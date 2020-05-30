@@ -337,11 +337,10 @@ table th:nth-of-type(3) {
 }
 </style>
 
-| |train|test|
+|<div style="width:100px"></div>|<div style="width:100px">train</div>|<div style="width:100px">test</div>|
 |---:|---:|---:|
 |0 (non-fraud)|199022|85293|
 |1 (fraud)|342|150|
-|<img width=100/>|<img width=50/>|<img width=50/>|
 
 ## Step 3. Modeling
 ---
