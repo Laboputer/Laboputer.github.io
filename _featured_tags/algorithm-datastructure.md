@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Data Structure - A to Z
+title: Data Structure
 slug: datastructure
 category: algorithm
 menu: false
