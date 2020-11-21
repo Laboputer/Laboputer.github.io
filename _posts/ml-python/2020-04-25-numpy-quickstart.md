@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "넘파이(Numpy) 사용법 알아보기 - 기본"
+title:  "넘파이(Numpy) 사용법 알아보기"
 subtitle:   "numpy"
 categories: machine-learning
 tags: python tutorial numpy

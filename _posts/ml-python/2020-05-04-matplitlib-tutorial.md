@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "맷플롯립(Matplotlib), 데이터 시각화 알아보기 - 기본"
+title:  "맷플롯립(Matplotlib), 데이터 시각화 알아보기"
 subtitle:   "matplotlib"
 categories: machine-learning
 tags: python tutorial matplotlib

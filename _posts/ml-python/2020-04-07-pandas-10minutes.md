@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "판다스(Pandas) 사용법 알아보기 - 기본"
+title:  "판다스(Pandas) 사용법 알아보기"
 subtitle:   "pandas"
 categories: machine-learning
 tags: python tutorial pandas
