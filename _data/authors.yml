@@ -8,11 +8,11 @@ laboputer:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    edit _authors.yml
+    
 
   # This photo will be used in the about section
   picture:
-    src:             /assets/img/me.jpeg
+    src:             /assets/img/me.png
     # srcset is optional, but can be used to provide higher res versions for retina displays
     srcset:
       1x:            /assets/img/me.jpeg
