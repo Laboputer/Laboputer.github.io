@@ -139,7 +139,10 @@ int main()
 }
 ```
 
-사실은 아래처럼 C++에서 `map<>`을 이용하면 간단합니다.
+Key, Value를 처리할 수 있도록 이미 구현되어 있는 C++ 의 [map<>](http://www.cplusplus.com/reference/map/map/)을 사용할수 있습니다.
+
+`map<>`을 사용한 코드:
+
 ```C
 #include <stdio.h>
 #include <map>
