@@ -16,6 +16,8 @@ tags: datastructure
 
 ![](https://laboputer.github.io/assets/img/algorithm/ds/07_hashtable1.PNG)
 
+### 시간복잡도
+
 위 그림처럼 국가코드(Key)가 주어지면 전체 국가명(Value)을 찾아내야한다고 할 때, 일반적인 배열로 저장해놓게 되면 모든 국가(N개)의 Key값을 비교해야 하므로 시간복잡도는 O(N)이지만, 해시함수를 이용하여 Key에 해당하는 해시값만 계산하면 O(1)만에 찾을 수 있게 됩니다.
 
 물론 Key값의 길이나 해시테이블의 크기를 얼마나 잡느냐에 따라 정확한 시간복잡도 계산은 다르지만, 해시테이블은 매우 빠릅니다.
