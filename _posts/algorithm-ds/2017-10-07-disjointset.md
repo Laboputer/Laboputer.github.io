@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[자료구조 2] 서로소 집합(Disjoint parent) 이해하기"
+title: "[자료구조 2] 서로소 집합(Disjoint set) 이해하기"
 subtitle: "ds2"
 categories: algorithm
 tags: datastructure
@@ -9,7 +9,7 @@ tags: datastructure
 > 데이터들을 몇 가지 집합으로 분류해주는 연산이 빠른 자료구조로 서로소 집합(Disjoint parent)을 사용하 수 있습니다. 유니온파인드(Union-Find)라고 부르기도 합니다.
 > 이 포스팅에서는 서로소 집합이 특징이 무엇이고, 어떻게 구현하는지를 예제를 통해 알아봅니다.
 
-## 서로소 집합(Disjoint parent)
+## 서로소 집합(Disjoint set)
 ---
 
 서로소 집합은 같은 집합은 묶고 다른 집합은 분리하여 저장할 수 있는 자료구조 입니다. 같거나 다른 집합으로 분리하는 것 뿐만 아니라 최대 N개의 집합으로 분리할 수 있습니다.
@@ -18,7 +18,7 @@ tags: datastructure
 
 서로소 집합은 2가지 연산이 있습니다.
 
-1. Union(X,Y): X가 속한 집합과, Y가 속한 집합을 합친다.
+1. Union(X,Y): X가 속한 집합과 Y가 속한 집합을 합친다.
 2. Find(X): X가 속한 집합의 대표번호를 반환한다.
 
 그래서 유니온파인드(Union-Find)로도 부르기도 합니다. 앞으로는 기억하기 쉽게 유니온파인드로 부르겠습니다.
@@ -27,9 +27,9 @@ tags: datastructure
 
 일반적인 배열로 접근하면 Union 연산은 대표 번호로 최대 N개의 수를 변경해야하기 때문에 O(N)이고, Find 연산은 대표번호를 바로 알 수 있기 때문에 O(1)입니다. 
 
-유니온파인드는 트리로 구현하면 Union 연산은 Find 연산을 통해 구현할 수 있고, Find 연산은 최악의 경우 O(N)이지만, 몇 가지 트릭으로 O(a(N))으로 만들 수 있습니다. 이는 O(1)로 취급해도 될 정도로 빠릅니다.
+유니온파인드는 트리로 구현하면 Union 연산은 Find 연산을 이용하여 구현할 수 있고, Find 연산은 최악의 경우 O(N)이지만, 몇 가지 트릭으로 O(a(N))으로 만들 수 있습니다. 이는 O(1)로 취급해도 될 정도로 빠릅니다.
 
-> a(N)은 [아커만 함수](https://ko.wikipedia.org/wiki/%EC%95%84%EC%BB%A4%EB%A7%8C_%ED%95%A8%EC%88%98)로 아주 큰 수도 4 이하가 되는 함수라고 합니다.
+> a(N)은 [아커만 함수](https://ko.wikipedia.org/wiki/%EC%95%84%EC%BB%A4%EB%A7%8C_%ED%95%A8%EC%88%98)로 아주 큰 수도 4 이하가 되는 함수라고 하네요.
 
 ## 유니온-파인드 구현
 ---
@@ -53,7 +53,7 @@ for (int i = 0; i < MAXN; i++)
 
 int Find(int x) 
 { 
-    return (parent[x] == x ? x : Find(parent[x])); 
+    return parent[x] == x ? x : Find(parent[x]); 
 }
 ```
 
@@ -63,12 +63,12 @@ int Find(int x)
 
 Union 연산은 Find 연산으로 쉽게 구현할 수 있습니다.
 
-1. X와 Y의 대표번호를 Find 연산으로 구한다.
+1. X와 Y의 루트를 Find 연산으로 구한다.
 2. 서로 다른 집합인 경우, 같은 집합으로 만든다.
 
 ![](https://laboputer.github.io/assets/img/algorithm/ds/09_uf3.PNG)
 
-위 그림에서 1번째 예를 보면 이미 3과 1은 대표번호가 2로 같은 집합입니다. 2번째 예를 보면 다른 집합이면 트리의 대표번호를 다른 하나의 대표번호로 변경하면 됩니다.
+위 그림에서 1번째 예를 보면 이미 3과 1은 루트가 2로 같은 집합입니다. 2번째 예를 보면 다른 집합이면 트리의 루트를 다른 하나의 루트값으로 변경하면 됩니다.
 
 구현 코드는 아래와 같습니다.
 ```C
