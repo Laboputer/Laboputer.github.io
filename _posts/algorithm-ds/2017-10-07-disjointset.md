@@ -6,7 +6,7 @@ categories: algorithm
 tags: datastructure
 ---
 
-> 데이터들을 몇 가지 집합으로 분류해주는 연산이 빠른 자료구조로 서로소 집합(Disjoint parent)을 사용하 수 있습니다. 유니온파인드(Union-Find)라고 부르기도 합니다.
+> 데이터들을 몇 가지 집합으로 분류해주는 연산이 빠른 자료구조로 `서로소 집합(Disjoint Set)`을 사용할 수 있습니다. 이는 `유니온파인드(Union-Find)`라고 부르기도 합니다.
 > 이 포스팅에서는 서로소 집합이 특징이 무엇이고, 어떻게 구현하는지를 예제를 통해 알아봅니다.
 
 ## 서로소 집합(Disjoint Set)
@@ -19,7 +19,7 @@ tags: datastructure
 1. Union(X,Y): X가 속한 집합과 Y가 속한 집합을 합친다.
 2. Find(X): X가 속한 집합의 대표번호를 반환한다.
 
-그래서 유니온파인드(Union-Find)로도 부르기도 합니다. 앞으로는 기억하기 쉽게 유니온파인드로 부르겠습니다.
+그래서 `유니온파인드(Union-Find)`로도 부르기도 합니다. 앞으로는 기억하기 쉽게 유니온파인드로 부르겠습니다.
 
 ![](https://laboputer.github.io/assets/img/algorithm/ds/09_uf1.PNG)
 
