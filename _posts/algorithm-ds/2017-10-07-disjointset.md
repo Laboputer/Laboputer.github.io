@@ -145,22 +145,21 @@ void Union(int x, int b)
 
 struct UF
 {
-	int parent[MAXN];
+    int parent[MAXN];
     int rank[MAXN];
 	
     UF() 
     { 
         for (int i = 0; i < MAXN; i++) parent[i] = i; 
     }
-
-	int Find(int x) 
+    
+    int Find(int x) 
     {
         // path compression
         return parent[x] = (parent[x] == x ? x : Find(parent[x])); 
     }
     
-
-	void Union(int a, int b) 
+    void Union(int a, int b) 
     { 
         a = Find(a), b = Find(b);
         if (a==b) return;
@@ -187,10 +186,8 @@ int main()
 	for (int i = 0, x, a, b; i < M; i++)
 	{
 		scanf("%d%d%d", &x, &a, &b);
-		if (x == 0) 
-            uf.Union(a, b);
-		else 
-            printf("%s\n", (uf.Find(a) == uf.Find(b) ? "YES" : "NO"));
+        if (x == 0) uf.Union(a, b);
+		else printf("%s\n", (uf.Find(a) == uf.Find(b) ? "YES" : "NO"));
 	}
 	return 0;
 }
