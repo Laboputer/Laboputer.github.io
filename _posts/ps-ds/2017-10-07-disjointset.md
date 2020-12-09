@@ -32,8 +32,8 @@ tags: datastructure
 > a(N)은 [아커만 함수](https://ko.wikipedia.org/wiki/%EC%95%84%EC%BB%A4%EB%A7%8C_%ED%95%A8%EC%88%98)로 아주 큰 수도 4 이하가 되는 함수라고 하네요.
 
 따라서 유니온파인드의 시간복잡도는 다음과 같습니다.
-- Find: O(a(N)) $\approxident$ O(1)
-- Union: O(a(N)) $\approxident$ O(1)
+- Find: O(a(N)) => O(1)
+- Union: O(a(N)) => O(1)
 
 ## 유니온-파인드 구현
 ---
