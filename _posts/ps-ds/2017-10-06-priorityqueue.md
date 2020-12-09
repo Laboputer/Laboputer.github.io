@@ -2,7 +2,7 @@
 layout: post
 title: "[자료구조 2] 우선순위 큐(Priority Queue) 이해하기"
 subtitle: "ds2"
-categories: algorithm
+categories: ps
 tags: datastructure
 ---
 

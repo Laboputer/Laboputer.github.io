@@ -1,7 +1,7 @@
 ---
 layout: list
-title: Algorithm
-slug: algorithm
+title: Problem Solving
+slug: ps
 menu: true
 submenu: true
 order: 2

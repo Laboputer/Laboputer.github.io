@@ -2,7 +2,7 @@
 layout: post
 title: "[자료구조 1] 배열과 리스트는 각각 언제 사용해야 할까?"
 subtitle: "ds1"
-categories: algorithm
+categories: ps
 tags: datastructure
 ---
 

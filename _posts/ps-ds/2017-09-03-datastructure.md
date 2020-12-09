@@ -2,7 +2,7 @@
 layout: post
 title: "[자료구조 1] 알고리즘 성능 분석부터 이해하기"
 subtitle: "ds1"
-categories: algorithm
+categories: ps
 tags: datastructure
 ---
 

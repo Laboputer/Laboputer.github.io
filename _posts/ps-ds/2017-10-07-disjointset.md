@@ -2,11 +2,11 @@
 layout: post
 title: "[자료구조 2] 서로소 집합(Disjoint Set) 이해하기"
 subtitle: "ds2"
-categories: algorithm
+categories: ps
 tags: datastructure
 ---
 
-> 데이터들을 몇 가지 집합으로 분류해주는 연산이 빠른 자료구조로 `서로소 집합(Disjoint Set)`을 사용할 수 있습니다. 이는 `유니온파인드(Union-Find)`라고 부르기도 합니다.
+> 데이터들을 여러가지 집합으로 분류해주는 연산이 빠른 자료구조로 `서로소 집합(Disjoint Set)`을 사용할 수 있습니다. 이는 `유니온파인드(Union-Find)`라고 부르기도 합니다.
 > 이 포스팅에서는 서로소 집합이 특징이 무엇이고, 어떻게 구현하는지를 예제를 통해 알아봅니다.
 
 ## 서로소 집합(Disjoint Set)
@@ -30,6 +30,10 @@ tags: datastructure
 유니온파인드는 트리로 구현하면 Union 연산은 Find 연산을 이용하여 구현할 수 있고, Find 연산은 최악의 경우 O(N)이지만, 몇 가지 트릭으로 O(a(N))으로 만들 수 있습니다. 이는 O(1)로 취급해도 될 정도로 빠릅니다.
 
 > a(N)은 [아커만 함수](https://ko.wikipedia.org/wiki/%EC%95%84%EC%BB%A4%EB%A7%8C_%ED%95%A8%EC%88%98)로 아주 큰 수도 4 이하가 되는 함수라고 하네요.
+
+따라서 유니온파인드의 시간복잡도는 다음과 같습니다.
+- Find: O(a(N)) $\approxident$ O(1)
+- Union: O(a(N)) $\approxident$ O(1)
 
 ## 유니온-파인드 구현
 ---
