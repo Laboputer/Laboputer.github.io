@@ -99,7 +99,7 @@ vector<int> hashtable[H];
 
 int Hash(char* str)
 {
-	long long hash = 0;
+	long long hash = 37;
 	for (int i = 0; str[i]; i++)
 		hash = ((hash + str[i]) * 31) % (long long)H;
 	return hash;
