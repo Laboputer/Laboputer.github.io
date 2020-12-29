@@ -18,7 +18,7 @@ tags: csharp-common
 - 실행파일 등(.exe, .dll 등)을 Zip하여 배포
 - 설치파일을 만들어 배포
 
-첫번째는 간단한 토이프로젝트 또는 일부 사용자에게 일회성으로 전달할 때는 유용합니다. 하지만 불특정 다수의 사용자에게 배포할 때는 보통 두번째 경우를 선택합니다.
+첫번째는 규모가 비교적 작은 프로그램을 누군가에게 주거나 일부 사용자에게 일회성으로 전달할 때는 유용합니다. 하지만 불특정 다수의 사용자에게 배포할 때는 보통 두번째 경우를 선택합니다.
 
 이 글은 설치파일을 만들어서 정식(?)으로 프로그램을 배포하는 방법에 대해 정리합니다.
 
@@ -96,7 +96,7 @@ Visual Studio 에서 `Microsoft Visual Studio Installer Projects` 라는 Extensi
 
 결론적으로 어떤 프로그램을 실행하든 `.msi` 파일을 통해 프로그램이 설치되므로 아무거나 실행하시면 됩니다.
 
-> Setup.exe, .msi 파일에 대한 자세한 내용은 [Stackoverflow](https://stackoverflow.com/questions/1789530/what-are-the-specific-differences-between-msi-and-setup-exe-file#:~:text=MSI%20is%20an%20installer%20file,your%20application%20to%20the%20system.) 참고
+> Setup.exe, .msi 파일에 대한 자세한 내용은 [Stackoverflow](https://stackoverflow.com/questions/1789530/what-are-the-specific-differences-between-msi-and-setup-exe-file) 참고
 
 실제로 `.msi` 파일을 실행하면 아래와 같이 Windows Installer 형식으로 프로그램이 설치가 됩니다.
 
@@ -141,3 +141,6 @@ Setup Project > Properties 에서 기본적인 부가정보들을 변경할 수 
 ---
 
 이 포스팅에서는 배포할 프로그램에 대한 `Windows Installer`을 만드는 것을 정리하였습니다. 이 외에도 다양한 옵션들이 많이 있습니다. 사용자 PC의 레지스트리 변경이 필요하다거나 설치 과정 커스터마이징을 통해 라이센스 확인이나 사용자 체크사항 확인 등 많은 것이 가능합니다. 필요에 따라 찾아 추가해보시길 바랍니다.
+
+---
+이 포스팅에서 사용된 소스 파일 다운로드: [create-a-installer.zip](https://laboputer.github.io/assets/zips/create-a-installer.zip)
