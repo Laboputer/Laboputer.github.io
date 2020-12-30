@@ -123,7 +123,9 @@ for (int i = 1; i <= N; i++)
 
 > 문제 링크:: 가장 긴 증가하는 부분수열(https://www.acmicpc.net/roblem/11053)
 
-> 주어진 수열에서 순서는 유지한채로 숫자들을 선택하여 가장 긴 증가하는 수열을 찾아내는 문제입니다. 이 문제는 [LIS(Longest Increasing Subsequence)](https://en.wikipedia.org/wiki/Longest_increasing_subsequence) 라고 합니다. 이 연습문제에서는 가장 긴 길이가 몇인지 구하기만 하면 됩니다.
+> 자세한 문제 설명은 위 링크로 들어가셔서 확인하시고 직접 풀어보세요!
+
+주어진 수열에서 순서는 유지한채로 숫자들을 선택하여 가장 긴 증가하는 수열을 찾아내는 문제입니다. 이 문제는 [LIS(Longest Increasing Subsequence)](https://en.wikipedia.org/wiki/Longest_increasing_subsequence) 라고 합니다. 이 연습문제에서는 가장 긴 길이가 몇인지 구하기만 하면 됩니다.
  
 ### 풀이
 ---
