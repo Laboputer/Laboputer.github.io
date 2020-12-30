@@ -25,9 +25,9 @@ tags: algorithm
 2. [중복되는 부분문제(Overlapping Subproblems)](https://en.wikipedia.org/wiki/Overlapping_subproblems)
 	- 전체문제를 해결함에 있어 똑같은 부분문제가 중복되어 발생하는 문제
 
-![](https://laboputer.github.io/assets/img/algorithm/algorithm/03_dp1.PNG)
+![](https://laboputer.github.io/assets/img/algorithm/algorithm/03_dp_1.PNG)
 
-그림에서 윗부분 그래프가 주어졌을 때 A에서 C로 가는 최단경로를 구하려면 (A->B)의 최단경로와 (B->C)의 최단경로를 합하면 됩니다. 즉 `최적부분구조`가 성립합니다.
+그림에서 첫번째 그래프가 주어졌을 때 A에서 C로 가는 최단경로를 구하려면 (A->B)의 최단경로와 (B->C)의 최단경로를 합하면 됩니다. 즉 `최적부분구조`가 성립합니다.
 
 하지만 통행료 만원 이하로 최단경로를 구하라는 문제로 바꾸면 (A->B)의 최단경로와 (B->C)의 최단경로에서 각각 어떤 도로를 이용해 통행료 얼마나 사용하느냐에 따라 최단경로가 달라질 수 있기 때문에 부분문제의 해들의 조합으로는 해를 구할 수 없습니다. 즉 `최적부분구조`가 성립하지 않습니다.
 
@@ -46,11 +46,12 @@ tags: algorithm
 ## 동적계획법 사고연습
 ---
 
-```
-예제1: 피보나치 수열의 N번째 수 F(N)은 ?
-       (단, 0 <= N <= 1000 이고, F(0) = F(1) = 1)
+### 예제1. 피보나치 수열의 N번째 수 F(N)은 ?
 
-# 피보나치 수열: F(N) = F(N-1) + F(N+2)   
+```
+- 단, F(0) = 1, F(1) = 1 이고, (0 <= N <= 1000)
+
+# 피보나치 수열 정의: F(N) = F(N-1) + F(N+2)   
 ```
 
 > 이 문제는 N이 커짐에 따라 오버플로우가 발생하지만 설명과 무관하므로 무시합니다.
@@ -70,7 +71,7 @@ int F(int n)
 
 동적계획법 접근:
 
-![](https://laboputer.github.io/assets/img/algorithm/algorithm/03_dp2.PNG)
+![](https://laboputer.github.io/assets/img/algorithm/algorithm/03_dp_2.PNG)
 
 피보나치 수열의 정의에 따라 F(N) 을 구하기 위해서는 F(N-1) 와 F(N-2) 의 합으로 구할 수 있습니다. 다시 말하면 부분문제의 해만으로 전체문제의 해를 구할 수 있습니다. 즉 `최적부분구조`가 성립합니다.
 
@@ -91,11 +92,10 @@ for(int i=2; i<MAXN; i++)
 }
 ```
 
-다른 예제도 똑같은 접근을 해봅시다.
+### 예제2: N, R 값이 주어질 때, 이항계수 nCr 값은 ? 
 
 ```
-예제2: N, R 값이 주어질 때, 이항계수 nCr 값은 ? 
-      (단, 1<= N <= 1000 이고 0 <= R <= N)
+단, (1 <= N <= 1000) 이고 (0 <= R <= N)
 
 # 이항계수 관계식 : n C r = (n-1) C (r-1) + (n-1) C r
 ```
