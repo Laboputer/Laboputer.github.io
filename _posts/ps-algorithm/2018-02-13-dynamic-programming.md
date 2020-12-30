@@ -11,7 +11,7 @@ tags: algorithm
 ## 동적계획법 (Dynamic Programming)
 ---
 
-동적계획법은 알고리즘 문제에서 정말 다양한 형태로 등장하기 때문에 이 방법으로 많은 문제를 해결할 수 있게 됩니다. 영어로는 [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming) 이라고 하지만 일반적인 프로그래밍에서 말하는 동적 프로그래밍 개념과는 전혀 관련이 없습니다.
+[동적계획법(Dynamic Programming)](https://en.wikipedia.org/wiki/Dynamic_programming)은 알고리즘 문제에서 정말 다양한 형태로 등장하기 때문에 이 방법으로 많은 문제를 해결할 수 있게 됩니다. 영어로는 `Dynamic Programming` 이라고 하지만 일반적인 프로그래밍에서 말하는 동적 프로그래밍 개념과는 전혀 관련이 없습니다.
 
 동적계획법은 [분할정복](https://laboputer.github.io/ps/2018/01/09/divide-and-conquer/)과 접근 방식이 비슷합니다. 어떤 문제를 작은 부분문제들로 나눠서 해결합니다. 다만 차이점은 문제를 어떻게 나누냐에 있습니다. [분할정복](https://laboputer.github.io/ps/2018/01/09/divide-and-conquer/)은 부분문제들을 한번만 구하면 되지만 동적계획법은 부분문제들이 여러번 사용되도록 문제를 분할합니다. 그래서 이미 해결한 부분문제들은 캐시 메모리에 넣어두고 이미 해결한 부분문제들의 해를 필요할 때는 메모리에 저장된 값을 사용합니다. 이렇게 메모리를 사용해 빠른 시간안에 구할 수 있도록 고안된 것입니다.
 
