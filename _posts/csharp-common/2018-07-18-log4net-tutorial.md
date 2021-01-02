@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "C# log4net을 이용하여 쉽게 로그 남기기"
+title:  "log4net을 이용하여 로그 쉽게 남기기"
 subtitle:   "log4net-tutorial"
 categories: csharp
 tags: csharp-common
