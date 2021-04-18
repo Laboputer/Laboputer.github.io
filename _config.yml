@@ -50,7 +50,7 @@ google_analytics:    UA-113532805-1
 disqus_shortname:    laboputer
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2020. by laboputer'
+copyright:           '&copy; 2021. by laboputer'
 
 # Format of the permalinks
 permalink:           pretty
