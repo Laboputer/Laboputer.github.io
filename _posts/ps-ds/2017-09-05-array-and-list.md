@@ -81,7 +81,7 @@ K번째 사람을 제거하고 N-1명의 사람을 다시 순서대로 배열을
 
 아래 코드처럼 구성하면 됩니다.
 
-```C
+```cpp
 for (int i = 0; i < N; i++)
 {
    int array_size = N - i;
@@ -105,7 +105,7 @@ for (int i = 0; i < N; i++)
 즉 제거하는 데는 O(1)이기 때문에 K번째 사람을 찾는 O(K) 시간이 걸립니다.
 이를 N번 반복해야 하기 때문에 `O(NK)`입니다. 마찬가지로 시간제한에도 문제 없습니다.
 
-```C
+```cpp
 std::list<int>::iterator current = list.begin();
 for (int i = 0; i < N; i++)
 {

@@ -88,7 +88,7 @@ tags: datastructure
 
 전체 코드:
 
-```C
+```cpp
 #include <stdio.h>
 #define MAXN 100005
 
@@ -173,7 +173,7 @@ int main(void)
 우선순위 큐가 이미 구현되어 있는 C++의 [priority_queue<>](http://www.cplusplus.com/reference/map/map/)을 사용할수 있습니다.
 
 `priority_queue<>`를 이용한 코드:
-```C
+```cpp
 #include <stdio.h>
 #include <queue>
 using namespace std;

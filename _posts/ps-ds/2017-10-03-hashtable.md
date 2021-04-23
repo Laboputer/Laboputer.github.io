@@ -35,7 +35,7 @@ tags: datastructure
 
 Key값이 문자열이라고 할 때 아래와 같은 코드를 보면
 
-```C
+```cpp
 char* str = "example"
 int hash = 0 
 for (int i=0; i<len(str); i++)
@@ -85,7 +85,7 @@ List hashtable[K];
 
 전체 코드:
 
-```C
+```cpp
 #include <stdio.h>
 #include <vector>
 using namespace std;
@@ -145,7 +145,7 @@ Key, Value를 처리할 수 있도록 이미 구현되어 있는 C++ 의 [map<>]
 
 `map<>`을 사용한 코드:
 
-```C
+```cpp
 #include <stdio.h>
 #include <map>
 #include <string>
